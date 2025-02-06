@@ -36,18 +36,18 @@ Ajoute -a pour voir aussi les branches distantes :
   
 6. Pousser une nouvelle branche sur GitHub
 Une branche locale n’existe pas encore sur GitHub. Pour l’envoyer :
---> git push -u origin nom-de-la-branche
+--> git push -u origin chemin-de-la-branche
 
   
 7. Supprimer une branche
 Supprimer une branche locale :
---> git branch -d nom-de-la-branche
+--> git branch -d chemin-de-la-branche
 
 Supprimer une branche distante (GitHub) :
 --> git push origin --delete nom-de-la-branche
 
 
-
+8. Actualiser l'état des branches : git fetch -p
 
 Résumé des commandes essentielles
 Action                                                Commande
