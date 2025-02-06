@@ -56,6 +56,13 @@ Supprimer une branche distante (GitHub) :
 
 
 
+
+Choses à retenir :
+- Se connecter à une branche distante, créera automatiquement une branche locale liée à celle distante.
+- 
+
+
+
 Résumé des commandes essentielles
 Action                                                Commande
 Créer une branche	                                    git branch nom-branche
