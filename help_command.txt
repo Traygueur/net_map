@@ -47,7 +47,14 @@ Supprimer une branche distante (GitHub) :
 --> git push origin --delete nom-de-la-branche
 
 
-8. Actualiser l'état des branches : git fetch -p
+8. Actualiser l'état des branches : 
+--> git fetch -p
+
+
+9. Lister les branches locales et leur lien avec branche distantes (si il y en a) :
+--> git fetch --prune
+
+
 
 Résumé des commandes essentielles
 Action                                                Commande
