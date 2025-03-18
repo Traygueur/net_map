@@ -54,6 +54,9 @@ Supprimer une branche distante (GitHub) :
 9. Lister les branches locales et leur lien avec branche distantes (si il y en a) :
 --> git fetch --prune
 
+10. Lier une branche distante :
+git switch -c nom-de-la-branche-locale chemin-de-la-branche-distante
+
 
 
 
