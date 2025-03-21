@@ -1,6 +1,7 @@
 #include "gui.h"
 #include <thread>
 #include <chrono>
+#include "map.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     std::thread guiThread([&]() {
@@ -11,10 +12,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
     // Simuler des logs
-    for (int i = 0; i < 10; ++i) {
-        GUI::AppendTextToConsole("Log numéro " + std::to_string(i) + "\r\n");
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    }
+    createMap();
 
     guiThread.join(); // Attendre que la GUI se termine
     return 0;

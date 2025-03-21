@@ -1,0 +1,44 @@
+-IC:/Qt/6.8.2/msvc2022_64/mkspecs/win32-msvc
+-IC:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/Net_map/x64/Release/qt/qmake
+-IC:/Qt/6.8.2/msvc2022_64/include
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQuickLayouts
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQuick/6.8.2
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQuick/6.8.2/QtQuick
+-IC:/Qt/6.8.2/msvc2022_64/include/QtGui/6.8.2
+-IC:/Qt/6.8.2/msvc2022_64/include/QtGui/6.8.2/QtGui
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQuickWidgets
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQuick
+-IC:/Qt/6.8.2/msvc2022_64/include/QtDesigner
+-IC:/Qt/6.8.2/msvc2022_64/include/QtUiTools
+-IC:/Qt/6.8.2/msvc2022_64/include/QtOpenGLWidgets
+-IC:/Qt/6.8.2/msvc2022_64/include/QtOpenGL
+-IC:/Qt/6.8.2/msvc2022_64/include/QtUiPlugin
+-IC:/Qt/6.8.2/msvc2022_64/include/QtWidgets
+-IC:/Qt/6.8.2/msvc2022_64/include/QtGui
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlMeta/6.8.2
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlMeta/6.8.2/QtQmlMeta
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlModels/6.8.2
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlModels/6.8.2/QtQmlModels
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlWorkerScript/6.8.2
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlWorkerScript/6.8.2/QtQmlWorkerScript
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQml/6.8.2
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQml/6.8.2/QtQml
+-IC:/Qt/6.8.2/msvc2022_64/include/QtCore/6.8.2
+-IC:/Qt/6.8.2/msvc2022_64/include/QtCore/6.8.2/QtCore
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlMeta
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlModels
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlWorkerScript
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQml
+-IC:/Qt/6.8.2/msvc2022_64/include/QtQmlIntegration
+-IC:/Qt/6.8.2/msvc2022_64/include/QtNetwork
+-IC:/Qt/6.8.2/msvc2022_64/include/QtXml
+-IC:/Qt/6.8.2/msvc2022_64/include/QtCore
+-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\atlmfc\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt
+-IInclude\um
