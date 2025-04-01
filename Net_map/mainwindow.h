@@ -27,6 +27,7 @@ private slots:
     void loadImage();
     void ouvrirPage();
     void saveCarto();
+    void loadXmlToTable(const QString& filePath);
 };
 
 

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -20,6 +21,7 @@
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -39,16 +41,21 @@ public:
     QPushButton *pushButtonImage;
     QLabel *imageLabel;
     QWidget *page2;
+    QScrollArea *scrollArea_2;
+    QWidget *scrollAreaWidgetContents;
+    QWidget *widget;
+    QTableWidget *tableWidget;
     QMenuBar *menubar;
     QMenu *menuNetMap;
     QMenu *menuEquipement;
+    QMenu *menuDevices;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1007, 561);
+        MainWindow->resize(1007, 554);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -80,7 +87,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_3 = new QWidget();
         scrollAreaWidgetContents_3->setObjectName("scrollAreaWidgetContents_3");
-        scrollAreaWidgetContents_3->setGeometry(QRect(0, -20, 975, 571));
+        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 975, 571));
         QSizePolicy sizePolicy2(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
@@ -122,6 +129,21 @@ public:
         stackedWidget->addWidget(page1);
         page2 = new QWidget();
         page2->setObjectName("page2");
+        scrollArea_2 = new QScrollArea(page2);
+        scrollArea_2->setObjectName("scrollArea_2");
+        scrollArea_2->setGeometry(QRect(0, 0, 1001, 511));
+        scrollArea_2->setMaximumSize(QSize(16777215, 16777215));
+        scrollArea_2->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 999, 509));
+        widget = new QWidget(scrollAreaWidgetContents);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(0, 0, 981, 751));
+        tableWidget = new QTableWidget(widget);
+        tableWidget->setObjectName("tableWidget");
+        tableWidget->setGeometry(QRect(0, 0, 981, 441));
+        scrollArea_2->setWidget(scrollAreaWidgetContents);
         stackedWidget->addWidget(page2);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -131,6 +153,8 @@ public:
         menuNetMap->setObjectName("menuNetMap");
         menuEquipement = new QMenu(menubar);
         menuEquipement->setObjectName("menuEquipement");
+        menuDevices = new QMenu(menubar);
+        menuDevices->setObjectName("menuDevices");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -138,6 +162,7 @@ public:
 
         menubar->addAction(menuNetMap->menuAction());
         menubar->addAction(menuEquipement->menuAction());
+        menubar->addAction(menuDevices->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -152,6 +177,7 @@ public:
         imageLabel->setText(QString());
         menuNetMap->setTitle(QCoreApplication::translate("MainWindow", "NetMap", nullptr));
         menuEquipement->setTitle(QCoreApplication::translate("MainWindow", "Equipement", nullptr));
+        menuDevices->setTitle(QCoreApplication::translate("MainWindow", "Devices", nullptr));
     } // retranslateUi
 
 };

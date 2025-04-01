@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1007</width>
-    <height>561</height>
+    <height>554</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -73,7 +73,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-20</y>
+         <y>0</y>
          <width>975</width>
          <height>571</height>
         </rect>
@@ -161,7 +161,57 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page2"/>
+    <widget class="QWidget" name="page2">
+     <widget class="QScrollArea" name="scrollArea_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1001</width>
+        <height>511</height>
+       </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>999</width>
+         <height>509</height>
+        </rect>
+       </property>
+       <widget class="QWidget" name="widget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>981</width>
+          <height>751</height>
+         </rect>
+        </property>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>981</width>
+           <height>441</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -183,8 +233,14 @@
      <string>Equipement</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuDevices">
+    <property name="title">
+     <string>Devices</string>
+    </property>
+   </widget>
    <addaction name="menuNetMap"/>
    <addaction name="menuEquipement"/>
+   <addaction name="menuDevices"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNouvellePage">

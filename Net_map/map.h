@@ -17,5 +17,6 @@ struct Device {
 
 int createMap();
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map);
+void parseArpTableQt(std::unordered_map<std::string, Device>& network_map);
 
 #endif // MAP_H
