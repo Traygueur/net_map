@@ -8,7 +8,14 @@
 #include <cstdio>
 #include <regex>
 #include <sstream>
+#include <QFile> // Ajout de l'inclusion nécessaire
 #include <QRegularExpression> // Ajout de l'inclusion nécessaire
+#include <QDomDocument> // Ajout de l'inclusion nécessaire
+#include <QMessageBox> // Ajout de l'inclusion nécessaire
+#include <QRegularExpressionMatch> // Ajout de l'inclusion nécessaire
+#include <QRegularExpressionMatchIterator> // Ajout de l'inclusion nécessaire
+
+   
 
 
 
@@ -37,9 +44,52 @@ void parseArpTableQt(std::unordered_map<std::string, Device>& network_map) {
 int createMap() {
     std::unordered_map<std::string, Device> network_map;
 
-    network_map["192.168.1.1"] = { "Router", "AA:BB:CC:DD:EE:FF", {"192.168.1.2", "192.168.1.3"} };
-    network_map["192.168.1.2"] = { "Switch", "11:22:33:44:55:66", {"192.168.1.1", "192.168.1.4"} };
-    network_map["192.168.1.3"] = { "PC", "77:88:99:AA:BB:CC", {"192.168.1.1"} };
+    QFile file("C:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/Net_map/scan_network.xml");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return 0;
+    }
+
+    QDomDocument doc;
+    if (!doc.setContent(&file)) {
+        file.close();
+        return 0;
+    }
+    file.close();
+
+    QDomElement root = doc.documentElement(); // <nmaprun>
+    QDomNodeList hosts = root.elementsByTagName("host");
+
+    for (int i = 0; i < hosts.count(); ++i) {
+        QDomElement host = hosts.at(i).toElement();
+
+        QString ip, mac, osType, accuracy, vendor;
+
+        // Adresse IP + MAC
+        QDomNodeList addresses = host.elementsByTagName("address");
+        for (int j = 0; j < addresses.count(); ++j) {
+            QDomElement address = addresses.at(j).toElement();
+            QString addr = address.attribute("addr");
+            QString type = address.attribute("addrtype");
+            QString vendoradd = address.attribute("vendor");
+
+            if (type == "ipv4") ip = addr;
+            if (type == "mac") mac = addr;
+        }
+
+        QDomNodeList osNodes = host.elementsByTagName("os");
+        if (!osNodes.isEmpty()) {
+            QDomElement osElement = osNodes.at(0).toElement();
+            QDomNodeList osMatches = osElement.elementsByTagName("osmatch");
+            if (!osMatches.isEmpty()) {
+                QDomElement osMatch = osMatches.at(0).toElement();
+                osType = osMatch.attribute("name");
+                accuracy = osMatch.attribute("accuracy");
+            }
+        }
+
+		network_map[ip.toStdString()] = {osType.toStdString(), mac.toStdString(), {}};
+    }
+	
     // Génération du graphe
     generateGraphe(network_map);
 
@@ -49,7 +99,7 @@ int createMap() {
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map) {
     std::ofstream file("network.dot");
     file << "graph Network {\n";
-    file << R"(bgcolor="#2E2E2E"; node [style=filled, fillcolor="white", fontcolor="black", color="black"]; edge [color="white"]; dpi=72; ratio=expand; )";
+    file << R"(bgcolor="#2E2E2E"; node [style=filled, fillcolor="white", fontcolor="black", color="black"]; edge [color="white"] ;ratio=expand; )";
     for (const auto& entry : network_map) {
         std::string ip = entry.first;
         Device device = entry.second;

@@ -3,7 +3,10 @@
 
 #include <QMainWindow>
 #include <QScrollArea>
-
+#include <QProcess>
+#include <QTime>           // pour QTime startTime
+#include <QString>
+#include <QStringList>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,12 +25,17 @@ public:
 private:
     Ui::MainWindow *ui;
     QScrollArea *scrollArea;
+    QProcess *process = nullptr;     // le processus Nmap
+    QString scanBuffer;
+    QTime startTime;
 
 private slots:
     void loadImage();
     void ouvrirPage();
     void saveCarto();
     void loadXmlToTable(const QString& filePath);
+    void updateScanOutput();
+    void onScanFinished(int exitCode, QProcess::ExitStatus status);
 };
 
 

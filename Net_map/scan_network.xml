@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///C:/Program Files (x86)/Nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Thu Apr  3 14:25:31 2025 as: &quot;C:\\Program Files (x86)\\Nmap\\nmap.exe&quot; -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24 -->
+<nmaprun scanner="nmap" args="&quot;C:\\Program Files (x86)\\Nmap\\nmap.exe&quot; -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24" start="1743683131" startstr="Thu Apr  3 14:25:31 2025" version="7.95" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<taskprogress task="NSE" time="1743683133" percent="0.00"/>
+<taskprogress task="NSE" time="1743683135" percent="40.00" remaining="5" etc="1743683140"/>
+<taskprogress task="NSE" time="1743683137" percent="46.67" remaining="6" etc="1743683143"/>
+<taskprogress task="NSE" time="1743683139" percent="86.67" remaining="2" etc="1743683140"/>
+<taskprogress task="NSE" time="1743683141" percent="86.67" remaining="2" etc="1743683142"/>
+<prescript><script id="broadcast-ping" output="&#xa;  IP: 192.168.1.32  MAC: 00:40:ad:a5:6f:bc&#xa;  IP: 192.168.1.76  MAC: 06:94:ae:e1:1a:c1&#xa;  Use -&#45;script-args=newtargets to add the results as targets&#xa;"/><script id="broadcast-netbios-master-browser" output="&#xa;ip  server  domain&#xa;"/><script id="broadcast-igmp-discovery" output="&#xa;  192.168.1.64&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  192.168.1.64&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 224.0.0.252&#xa;    Description: Link-local Multicast Name Resolution (rfc4795)&#xa;  192.168.1.106&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  192.168.1.140&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  192.168.1.21&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 239.255.255.250&#xa;    Description: Organization-Local Scope (rfc2365)&#xa;  192.168.1.64&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 239.255.255.250&#xa;    Description: Organization-Local Scope (rfc2365)&#xa;  192.168.1.140&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 239.255.255.250&#xa;    Description: Organization-Local Scope (rfc2365)&#xa;  192.168.1.254&#xa;    Interface: eth4&#xa;    Version: 2&#xa;    Group: 239.255.255.250&#xa;    Description: Organization-Local Scope (rfc2365)&#xa;  Use the newtargets script-arg to add the results as targets&#xa;"/><script id="broadcast-dhcp-discover" output="&#xa;  Response 1 of 1: &#xa;    Interface: eth4&#xa;    IP Offered: 192.168.1.181&#xa;    DHCP Message Type: DHCPOFFER&#xa;    Server Identifier: 192.168.1.254&#xa;    IP Address Lease Time: 1d00h00m00s&#xa;    Renewal Time Value: 12h00m00s&#xa;    Rebinding Time Value: 21h00m00s&#xa;    Broadcast Address: 192.168.1.255&#xa;    Hostname: Host-003&#xa;    Domain Name Server: 192.168.1.254&#xa;    Domain Name: lan&#xa;    Router: 192.168.1.254&#xa;    Subnet Mask: 255.255.255.0"><table key="Response 1 of 1">
+<elem key="Interface">eth4</elem>
+<elem key="IP Offered">192.168.1.181</elem>
+<elem key="DHCP Message Type">DHCPOFFER</elem>
+<elem key="Server Identifier">192.168.1.254</elem>
+<elem key="IP Address Lease Time">1d00h00m00s</elem>
+<elem key="Renewal Time Value">12h00m00s</elem>
+<elem key="Rebinding Time Value">21h00m00s</elem>
+<elem key="Broadcast Address">192.168.1.255</elem>
+<elem key="Hostname">Host-003</elem>
+<elem key="Domain Name Server">192.168.1.254</elem>
+<elem key="Domain Name">lan</elem>
+<elem key="Router">192.168.1.254</elem>
+<elem key="Subnet Mask">255.255.255.0</elem>
+</table>
+</script></prescript><hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.21" addrtype="ipv4"/>
+<address addr="30:1B:97:57:AF:1B" addrtype="mac" vendor="Lierda Science &amp; Technology Group"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.32" addrtype="ipv4"/>
+<address addr="00:40:AD:A5:6F:BC" addrtype="mac" vendor="SMA Regelsysteme Gmbh"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.106" addrtype="ipv4"/>
+<address addr="0E:BA:37:FB:3E:06" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.140" addrtype="ipv4"/>
+<address addr="D0:5A:00:0F:82:B7" addrtype="mac" vendor="Vantiva USA"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.254" addrtype="ipv4"/>
+<address addr="F4:05:95:41:1F:75" addrtype="mac" vendor="Sagemcom Broadband SAS"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.40" addrtype="ipv4"/>
+<address addr="30:D3:2D:D6:31:45" addrtype="mac" vendor="devolo AG"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.64" addrtype="ipv4"/>
+<address addr="50:65:F3:00:02:DB" addrtype="mac" vendor="Hewlett Packard"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.65" addrtype="ipv4"/>
+<address addr="58:2F:F7:7D:43:88" addrtype="mac" vendor="Sagemcom Broadband SAS"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskprogress task="ARP Ping Scan" time="1743683143" percent="67.25" remaining="1" etc="1743683143"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.76" addrtype="ipv4"/>
+<address addr="06:94:AE:E1:1A:C1" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskprogress task="Parallel DNS resolution of 9 hosts." time="1743683146" percent="44.44" remaining="3" etc="1743683149"/>
+<taskprogress task="Parallel DNS resolution of 9 hosts." time="1743683148" percent="44.44" remaining="6" etc="1743683153"/>
+<taskprogress task="Parallel DNS resolution of 9 hosts." time="1743683150" percent="44.44" remaining="8" etc="1743683158"/>
+<taskprogress task="Parallel DNS resolution of 9 hosts." time="1743683152" percent="66.67" remaining="4" etc="1743683156"/>
+<taskprogress task="Parallel DNS resolution of 9 hosts." time="1743683154" percent="66.67" remaining="6" etc="1743683159"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1743683156" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1743683158" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1743683160" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1743683162" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1743683164" percent="0.00"/>
+<taskprogress task="Parallel DNS resolution of 1 host." time="1743683166" percent="0.00"/>
+<taskprogress task="SYN Stealth Scan" time="1743683167" percent="60.61" remaining="1" etc="1743683168"/>
+<taskprogress task="SYN Stealth Scan" time="1743683170" percent="72.86" remaining="2" etc="1743683171"/>
+<taskprogress task="SYN Stealth Scan" time="1743683171" percent="75.67" remaining="2" etc="1743683173"/>
+<taskprogress task="SYN Stealth Scan" time="1743683173" percent="78.25" remaining="2" etc="1743683175"/>
+<taskprogress task="SYN Stealth Scan" time="1743683175" percent="84.14" remaining="2" etc="1743683177"/>
+<taskprogress task="SYN Stealth Scan" time="1743683177" percent="91.72" remaining="1" etc="1743683178"/>
+<taskprogress task="SYN Stealth Scan" time="1743683179" percent="98.67" remaining="1" etc="1743683179"/>
+<host starttime="1743683166" endtime="1743683182"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.21" addrtype="ipv4"/>
+<address addr="30:1B:97:57:AF:1B" addrtype="mac" vendor="Lierda Science &amp; Technology Group"/>
+<hostnames>
+<hostname name="Host-001.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="97">
+<extrareasons reason="reset" count="97" proto="tcp" ports="7,9,13,21,23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="554"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rtsp" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="38395"/>
+<osmatch name="Linux 3.2 - 4.14" accuracy="100" line="68432">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="27987650" lastboot="Tue May 14 16:05:35 2024"/>
+<distance value="1"/>
+<tcpsequence index="258" difficulty="Good luck!" values="1168A1AA,55D4A8AB,948B1660,C19286E8,3381C48E,1FB90D36"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="100HZ" values="A6D1C297,A6D1C2A2,A6D1C2AD,A6D1C2B8,A6D1C2C3,A6D1C2CD"/>
+<times srtt="22590" rttvar="7589" to="100000"/>
+</host>
+<host starttime="1743683166" endtime="1743683185"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.32" addrtype="ipv4"/>
+<address addr="00:40:AD:A5:6F:BC" addrtype="mac" vendor="SMA Regelsysteme Gmbh"/>
+<hostnames>
+<hostname name="Host-002.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<os><osmatch name="Lancom LCOS 9.20" accuracy="88" line="45796">
+<osclass type="specialized" vendor="Lancom" osfamily="LCOS" osgen="9.X" accuracy="88"><cpe>cpe:/o:lancom:lcos:9.20</cpe></osclass>
+</osmatch>
+<osmatch name="TRENDnet TV-IP100 webcam" accuracy="85" line="109908">
+<osclass type="webcam" vendor="TRENDnet" osfamily="embedded" accuracy="85"><cpe>cpe:/h:trendnet:tv-ip100</cpe></osclass>
+</osmatch>
+</os>
+<distance value="1"/>
+<times srtt="45260" rttvar="35818" to="188532"/>
+</host>
+<host starttime="1743683166" endtime="1743683185"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.40" addrtype="ipv4"/>
+<address addr="30:D3:2D:D6:31:45" addrtype="mac" vendor="devolo AG"/>
+<hostnames>
+<hostname name="ExtenderWiFi-3144.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="filtered" count="94">
+<extrareasons reason="no-response" count="94" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49157"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49152"><state state="closed" reason="reset" reason_ttl="64"/></port>
+<port protocol="tcp" portid="49153"><state state="closed" reason="reset" reason_ttl="64"/></port>
+<port protocol="tcp" portid="49154"><state state="closed" reason="reset" reason_ttl="64"/></port>
+<port protocol="tcp" portid="49155"><state state="closed" reason="reset" reason_ttl="64"/></port>
+<port protocol="tcp" portid="49156"><state state="closed" reason="reset" reason_ttl="64"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="80"/>
+<portused state="closed" proto="tcp" portid="49152"/>
+<osmatch name="Linux 3.2 - 3.8" accuracy="93" line="68357">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="93"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.32 - 3.10" accuracy="88" line="59874">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="88"><cpe>cpe:/o:linux:linux_kernel:2.6</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="88"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+<osmatch name="Grandstream GXV3275 video phone" accuracy="87" line="34685">
+<osclass type="VoIP phone" vendor="Grandstream" osfamily="embedded" accuracy="87"><cpe>cpe:/h:grandstream:gxv3275</cpe></osclass>
+</osmatch>
+<osmatch name="Excito B3 file server (Linux 2.6.39)" accuracy="87" line="50884">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="87"><cpe>cpe:/o:linux:linux_kernel:2.6.39</cpe></osclass>
+<osclass type="storage-misc" vendor="Excito" osfamily="embedded" accuracy="87"><cpe>cpe:/h:excito:b3</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 3.2 - 3.16" accuracy="87" line="68255">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="87"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 3.6" accuracy="86" line="68820">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="86"><cpe>cpe:/o:linux:linux_kernel:3.6</cpe></osclass>
+</osmatch>
+<osmatch name="Netgear R9000 router (Linux 3.10)" accuracy="86" line="65185">
+<osclass type="broadband router" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="86"><cpe>cpe:/o:linux:linux_kernel:3.10</cpe></osclass>
+</osmatch>
+<osmatch name="Netgear R7500 router (Linux 3.4)" accuracy="86" line="93923">
+<osclass type="broadband router" vendor="Netgear" osfamily="embedded" accuracy="86"><cpe>cpe:/h:netgear:r7500</cpe></osclass>
+<osclass type="broadband router" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="86"><cpe>cpe:/o:linux:linux_kernel:3.4</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.32 - 2.6.33" accuracy="86" line="59581">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="86"><cpe>cpe:/o:linux:linux_kernel:2.6</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 3.3" accuracy="86" line="68579">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="86"><cpe>cpe:/o:linux:linux_kernel:3.3</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="495323" lastboot="Fri Mar 28 19:51:02 2025"/>
+<distance value="1"/>
+<tcpsequence index="253" difficulty="Good luck!" values="48FD3C68,1F7A056A,35C2850E,2F1CA82A,FD9DDE46,BFF5DB3D"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="100HZ" values="2F3CD4D,2F3CD58,2F3CD63,2F3CD6E,2F3CD79,2F3CD83"/>
+<times srtt="18110" rttvar="6467" to="100000"/>
+</host>
+<host starttime="1743683166" endtime="1743683182"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.64" addrtype="ipv4"/>
+<address addr="50:65:F3:00:02:DB" addrtype="mac" vendor="Hewlett Packard"/>
+<hostnames>
+<hostname name="HP0002DA.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="94">
+<extrareasons reason="reset" count="94" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-514,543-544,548,554,587,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8081,8443,8888,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="515"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="printer" method="table" conf="3"/></port>
+<port protocol="tcp" portid="631"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ipp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http-proxy" method="table" conf="3"/></port>
+<port protocol="tcp" portid="9100"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="jetdirect" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="80"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="41757"/>
+<osmatch name="Linux 3.2 - 4.14" accuracy="100" line="68432">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:3</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+</osmatch>
+<osmatch name="Android 4.2.2 (Linux 3.4)" accuracy="100" line="69573">
+<osclass type="phone" vendor="Linux" osfamily="Linux" osgen="3.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:3.4</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="4.2.X" accuracy="100"><cpe>cpe:/o:google:android:4.2.2</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="3206385" lastboot="Tue Feb 25 10:46:40 2025"/>
+<distance value="1"/>
+<tcpsequence index="257" difficulty="Good luck!" values="69D668F0,DAAE8B6A,75FE20B3,E26FD8ED,A6BFA38C,D403D128"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="100HZ" values="131C8CC5,131C8CD1,131C8CDB,131C8CE6,131C8CF1,131C8CFC"/>
+<times srtt="30943" rttvar="12667" to="100000"/>
+</host>
+<host starttime="1743683166" endtime="1743683185"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.65" addrtype="ipv4"/>
+<address addr="58:2F:F7:7D:43:88" addrtype="mac" vendor="Sagemcom Broadband SAS"/>
+<hostnames>
+<hostname name="Repeteur-Bbox-Wi-Fi-6-4388.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="filtered" count="97">
+<extrareasons reason="no-response" count="97" proto="tcp" ports="7,9,13,21-23,25-26,37,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="closed" reason="reset" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="closed" reason="reset" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="53"/>
+<portused state="closed" proto="tcp" portid="80"/>
+<osmatch name="OpenWrt Kamikaze 7.09 (Linux 2.6.22)" accuracy="95" line="64793">
+<osclass type="WAP" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="95"><cpe>cpe:/o:linux:linux_kernel:2.6.22</cpe></osclass>
+</osmatch>
+<osmatch name="OpenWrt 0.9 - 7.09 (Linux 2.4.30 - 2.4.34)" accuracy="94" line="50110">
+<osclass type="WAP" vendor="Linux" osfamily="Linux" osgen="2.4.X" accuracy="94"><cpe>cpe:/o:linux:linux_kernel:2.4</cpe></osclass>
+</osmatch>
+<osmatch name="OpenWrt White Russian 0.9 (Linux 2.4.30)" accuracy="94" line="50149">
+<osclass type="WAP" vendor="Linux" osfamily="Linux" osgen="2.4.X" accuracy="94"><cpe>cpe:/o:linux:linux_kernel:2.4.30</cpe></osclass>
+</osmatch>
+<osmatch name="Zgemma H9 TV receiver (Linux 4.4)" accuracy="93" line="114171">
+<osclass type="media device" vendor="Zgemma" osfamily="embedded" accuracy="93"/>
+<osclass type="media device" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="93"><cpe>cpe:/o:linux:linux_kernel:4.4</cpe></osclass>
+</osmatch>
+<osmatch name="Sagemcom Home Hub 3000 DSL modem" accuracy="91" line="102509">
+<osclass type="broadband router" vendor="Sagemcom" osfamily="embedded" accuracy="91"><cpe>cpe:/h:sagemcom:home_hub_3000</cpe></osclass>
+</osmatch>
+<osmatch name="Philips Hue Bridge 2.0 (Linux 4.14)" accuracy="91" line="99723">
+<osclass type="specialized" vendor="Philips" osfamily="embedded" accuracy="91"/>
+<osclass type="specialized" vendor="Linux" osfamily="Linux" accuracy="91"><cpe>cpe:/o:linux:linux_kernel</cpe></osclass>
+</osmatch>
+<osmatch name="QNAP NAS device (Linux 4.14)" accuracy="90" line="100525">
+<osclass type="storage-misc" vendor="QNAP" osfamily="embedded" accuracy="90"/>
+<osclass type="storage-misc" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="90"><cpe>cpe:/o:linux:linux_kernel:4.14</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.4.18" accuracy="89" line="48450">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.4.X" accuracy="89"><cpe>cpe:/o:linux:linux_kernel:2.4.18</cpe></osclass>
+</osmatch>
+<osmatch name="Philips Hue Bridge 2.0 (Linux)" accuracy="88" line="99742">
+<osclass type="specialized" vendor="Philips" osfamily="embedded" accuracy="88"/>
+<osclass type="specialized" vendor="Linux" osfamily="Linux" accuracy="88"><cpe>cpe:/o:linux:linux_kernel</cpe></osclass>
+</osmatch>
+<osmatch name="Linux 2.6.20.6" accuracy="88" line="54057">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="2.6.X" accuracy="88"><cpe>cpe:/o:linux:linux_kernel:2.6.20.6</cpe></osclass>
+</osmatch>
+</os>
+<distance value="1"/>
+<tcpsequence index="264" difficulty="Good luck!" values="29ABBC3D,195C99D3,12A45696,8DB65E1E,E205E014,66C629E1"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="none returned (unsupported)"/>
+<times srtt="21748" rttvar="5661" to="100000"/>
+</host>
+<host starttime="1743683166" endtime="1743683185"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.76" addrtype="ipv4"/>
+<address addr="06:94:AE:E1:1A:C1" addrtype="mac"/>
+<hostnames>
+<hostname name="iPhone.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="100">
+<extrareasons reason="reset" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<os><portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="31091"/>
+</os>
+<distance value="1"/>
+<times srtt="27300" rttvar="12724" to="100000"/>
+</host>
+<host starttime="1743683166" endtime="1743683182"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.106" addrtype="ipv4"/>
+<address addr="0E:BA:37:FB:3E:06" addrtype="mac"/>
+<hostnames>
+<hostname name="stm32mp151a-bitron-epro-mx.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="97">
+<extrareasons reason="reset" count="97" proto="tcp" ports="7,9,13,21,23,25-26,37,79-81,88,106,110,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="22"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="38362"/>
+<osmatch name="Linux 4.15 - 5.19" accuracy="100" line="70534">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:5</cpe></osclass>
+</osmatch>
+<osmatch name="OpenWrt 21.02 (Linux 5.4)" accuracy="100" line="72530">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="5.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:5.4</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="4209398" lastboot="Thu Feb 13 20:09:47 2025"/>
+<distance value="1"/>
+<tcpsequence index="257" difficulty="Good luck!" values="BB282A7D,83B73395,880ACC5B,AECFE193,FBE030AB,49580F5E"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="FAE6425B,FAE642C6,FAE6432F,FAE643A1,FAE6440C,FAE64475"/>
+<times srtt="37358" rttvar="8452" to="100000"/>
+</host>
+<host starttime="1743683166" endtime="1743683182"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.140" addrtype="ipv4"/>
+<address addr="D0:5A:00:0F:82:B7" addrtype="mac" vendor="Vantiva USA"/>
+<hostnames>
+<hostname name="Bbox-TV-001.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="97">
+<extrareasons reason="reset" count="97" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8080-8081,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="8008"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8009"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ajp13" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https-alt" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="8008"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="39608"/>
+<osmatch name="Android 10 - 12 (Linux 4.14 - 4.19)" accuracy="100" line="71590">
+<osclass type="phone" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="10.X" accuracy="100"><cpe>cpe:/o:google:android:10</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="11.X" accuracy="100"><cpe>cpe:/o:google:android:11</cpe></osclass>
+<osclass type="phone" vendor="Google" osfamily="Android" osgen="12.X" accuracy="100"><cpe>cpe:/o:google:android:12</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="574914" lastboot="Thu Mar 27 21:44:31 2025"/>
+<distance value="1"/>
+<tcpsequence index="256" difficulty="Good luck!" values="8D58FD5,21C57D73,C36C6948,CAB67F6,5132E2A8,723E0F0E"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="2244705C,224470CA,22447132,224471A7,22447211,2244727A"/>
+<times srtt="27442" rttvar="12040" to="100000"/>
+</host>
+<host starttime="1743683166" endtime="1743683182"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.1.254" addrtype="ipv4"/>
+<address addr="F4:05:95:41:1F:75" addrtype="mac" vendor="Sagemcom Broadband SAS"/>
+<hostnames>
+<hostname name="bbox.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="95">
+<extrareasons reason="reset" count="95" proto="tcp" ports="7,9,13,21-23,25-26,37,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49153-49157"/>
+</extraports>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="5060"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="sip" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49152"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="53"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="41874"/>
+<osmatch name="Linux 4.19 - 5.15" accuracy="100" line="70666">
+<osclass type="general purpose" vendor="Linux" osfamily="Linux" osgen="4.X" accuracy="100"><cpe>cpe:/o:linux:linux_kernel:4</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="3620125" lastboot="Thu Feb 20 15:51:00 2025"/>
+<distance value="1"/>
+<tcpsequence index="257" difficulty="Good luck!" values="E53B809,C402CF03,11A30FC0,E305A0FD,5A7CACFF,F1656C96"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="1000HZ" values="D7C6AD4E,D7C6ADBA,D7C6AE24,D7C6AE99,D7C6AF02,D7C6AF6B"/>
+<times srtt="18949" rttvar="9135" to="100000"/>
+</host>
+<taskprogress task="SYN Stealth Scan" time="1743683185" percent="10.00" remaining="0" etc="1743683185"/>
+<host starttime="1743683185" endtime="1743683195"><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="192.168.1.90" addrtype="ipv4"/>
+<hostnames>
+<hostname name="MSI.lan" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="96">
+<extrareasons reason="reset" count="96" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,143-144,179,199,389,427,443-444,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="msrpc" method="table" conf="3"/></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="netbios-ssn" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="http-proxy" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="135"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="44175"/>
+<osmatch name="Microsoft Windows 10 1607 - 11 23H2" accuracy="99" line="74791">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="10" accuracy="99"><cpe>cpe:/o:microsoft:windows_10</cpe></osclass>
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="11" accuracy="99"><cpe>cpe:/o:microsoft:windows_11</cpe></osclass>
+</osmatch>
+<osmatch name="Microsoft Windows 10 1511" accuracy="97" line="74530">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="10" accuracy="97"><cpe>cpe:/o:microsoft:windows_10</cpe></osclass>
+</osmatch>
+<osmatch name="Windows 11 21H2" accuracy="97" line="75587">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="11" accuracy="97"><cpe>cpe:/o:microsoft:windows_11</cpe></osclass>
+</osmatch>
+<osmatch name="Windows Server 2022" accuracy="97" line="82130">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="2022" accuracy="97"><cpe>cpe:/o:microsoft:windows_server_2022</cpe></osclass>
+</osmatch>
+<osmatch name="Microsoft Windows 10 1703" accuracy="96" line="74847">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="10" accuracy="96"><cpe>cpe:/o:microsoft:windows_10</cpe></osclass>
+</osmatch>
+<osmatch name="Microsoft Windows 10 1703 or Windows 11 21H2" accuracy="96" line="74943">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="10" accuracy="96"><cpe>cpe:/o:microsoft:windows_10</cpe></osclass>
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="11" accuracy="96"><cpe>cpe:/o:microsoft:windows_11</cpe></osclass>
+</osmatch>
+<osmatch name="Microsoft Windows 10 1703 - 11 21H2" accuracy="95" line="74920">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="10" accuracy="95"><cpe>cpe:/o:microsoft:windows_10</cpe></osclass>
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="11" accuracy="95"><cpe>cpe:/o:microsoft:windows_11</cpe></osclass>
+</osmatch>
+<osmatch name="Microsoft Windows 11 21H2" accuracy="95" line="75569">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="11" accuracy="95"><cpe>cpe:/o:microsoft:windows_11</cpe></osclass>
+</osmatch>
+<osmatch name="Microsoft Windows 7 or 8.1 R1" accuracy="94" line="82755">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="7" accuracy="94"><cpe>cpe:/o:microsoft:windows_7</cpe></osclass>
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="8.1" accuracy="94"><cpe>cpe:/o:microsoft:windows_8.1:r1</cpe></osclass>
+</osmatch>
+<osmatch name="Microsoft Windows 10 1607" accuracy="94" line="74626">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="10" accuracy="94"><cpe>cpe:/o:microsoft:windows_10</cpe></osclass>
+</osmatch>
+<osfingerprint fingerprint="OS:SCAN(V=7.95%E=4%D=4/3%OT=135%CT=7%CU=44175%PV=Y%DS=0%DC=L%G=Y%TM=67EE7E7&#xa;OS:B%P=i686-pc-windows-windows)SEQ(SP=100%GCD=1%ISR=10E%TI=I%CI=I%II=I%SS=S&#xa;OS:%TS=A)SEQ(SP=101%GCD=1%ISR=105%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=104%GCD=1&#xa;OS:%ISR=109%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=106%GCD=1%ISR=106%TI=I%CI=I%II=&#xa;OS:I%SS=S%TS=A)OPS(O1=MFFD7NW8ST11%O2=MFFD7NW8ST11%O3=MFFD7NW8NNT11%O4=MFFD&#xa;OS:7NW8ST11%O5=MFFD7NW8ST11%O6=MFFD7ST11)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFF&#xa;OS:F%W5=FFFF%W6=FFFF)ECN(R=Y%DF=Y%T=80%W=FFFF%O=MFFD7NW8NNS%CC=N%Q=)T1(R=Y%&#xa;OS:DF=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=&#xa;OS:0%Q=)T3(R=Y%DF=Y%T=80%W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S&#xa;OS:=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R&#xa;OS:=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=&#xa;OS:AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=Z%RUCK=G%&#xa;OS:RUD=G)IE(R=Y%DFI=N%T=80%CD=Z)&#xa;"/>
+</os>
+<uptime seconds="70753" lastboot="Wed Apr  2 18:47:22 2025"/>
+<distance value="0"/>
+<tcpsequence index="257" difficulty="Good luck!" values="6A7C1955,474339D5,9C107EF1,7C2D2DE6,4577D288,43123A15"/>
+<ipidsequence class="Incremental" values="E99C,E99E,E9A0,E9A2,E9A4,E9A6"/>
+<tcptssequence class="1000HZ" values="4379851,43798BF,437992C,437999A,4379A06,4379A72"/>
+<times srtt="919" rttvar="269" to="100000"/>
+</host>
+<runstats><finished time="1743683195" timestr="Thu Apr  3 14:26:35 2025" summary="Nmap done at Thu Apr  3 14:26:35 2025; 256 IP addresses (10 hosts up) scanned in 63.62 seconds" elapsed="63.62" exit="success"/><hosts up="10" down="246" total="256"/>
+</runstats>
+</nmaprun>

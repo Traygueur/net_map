@@ -1,10 +1,12 @@
 graph Network {
-bgcolor="#2E2E2E"; node [style=filled, fillcolor="white", fontcolor="black", color="black"]; edge [color="white"]; dpi=72; ratio=expand;   "192.168.1.1" [label="192.168.1.1\nRouter"];
-  "192.168.1.1" -- "192.168.1.2";
-  "192.168.1.1" -- "192.168.1.3";
-  "192.168.1.2" [label="192.168.1.2\nSwitch"];
-  "192.168.1.2" -- "192.168.1.1";
-  "192.168.1.2" -- "192.168.1.4";
-  "192.168.1.3" [label="192.168.1.3\nPC"];
-  "192.168.1.3" -- "192.168.1.1";
+bgcolor="#2E2E2E"; node [style=filled, fillcolor="white", fontcolor="black", color="black"]; edge [color="white"] ;ratio=expand;   "192.168.1.65" [label="192.168.1.65\nOpenWrt Kamikaze 7.09 (Linux 2.6.22)"];
+  "192.168.1.21" [label="192.168.1.21\nLinux 3.2 - 4.14"];
+  "192.168.1.140" [label="192.168.1.140\nAndroid 10 - 12 (Linux 4.14 - 4.19)"];
+  "192.168.1.76" [label="192.168.1.76\n"];
+  "192.168.1.32" [label="192.168.1.32\nLancom LCOS 9.20"];
+  "192.168.1.40" [label="192.168.1.40\nLinux 3.2 - 3.8"];
+  "192.168.1.64" [label="192.168.1.64\nLinux 3.2 - 4.14"];
+  "192.168.1.106" [label="192.168.1.106\nLinux 4.15 - 5.19"];
+  "192.168.1.254" [label="192.168.1.254\nLinux 4.19 - 5.15"];
+  "192.168.1.90" [label="192.168.1.90\nMicrosoft Windows 10 1607 - 11 23H2"];
 }
