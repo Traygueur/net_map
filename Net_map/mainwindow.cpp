@@ -11,7 +11,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QProgressBar>
-
+#include <QLineEdit>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(actionSaveCarto, &QAction::triggered, this, &MainWindow::saveCarto);
 
 
-    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(ui->widgetContainer->layout());
+
     ui->progressBar->setValue(0);
     ui->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     ui->scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     scrollLayout->setSpacing(10);
 
     scrollLayout->addWidget(ui->imageLabel);
-
+    ui->progressBar->setStyleSheet("QProgressBar { min-height: 30px; max-height: 30px; }");
 }
 
 MainWindow::~MainWindow()
@@ -49,21 +49,29 @@ MainWindow::~MainWindow()
 
 void MainWindow::loadImage()
 {
+
+    QString ipRange = ui->lineEdit->text().trimmed();
+	if (ipRange.isEmpty()) {
+		QMessageBox::warning(this, "Erreur", "Veuillez entrer une plage d'adresses IP.");
+		return;
+	}
+
+    QString exePath = QCoreApplication::applicationDirPath();
     qDebug() << "loadImage() est appelé !";  // Vérification
+	qDebug() << "exePath : " << exePath;  // Vérification
 
     ui->progressBar->setValue(0);
 
     scanBuffer.clear();
     process = new QProcess(this);
-    QString program = "C:/Program Files (x86)/Nmap/nmap.exe";
+    QString program = exePath + "/nmap/nmap.exe";
     QStringList arguments = {
          "-sS", "-O", "-F",
          "--script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery",
          "--stats-every", "2s",
          "-oX", "scan_network.xml",
-         "192.168.1.0/24"
+         ipRange
     };
-    process->setWorkingDirectory("C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\Net_map\\");
     connect(process, &QProcess::readyReadStandardOutput,
         this, &MainWindow::updateScanOutput);
     connect(process, &QProcess::readyReadStandardError,
@@ -72,7 +80,10 @@ void MainWindow::loadImage()
     connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
         this, &MainWindow::onScanFinished);
 
+
+
     startTime = QTime::currentTime();
+    process->setWorkingDirectory(exePath);
     process->start(program, arguments);
 
 }
@@ -90,7 +101,8 @@ void MainWindow::ouvrirPage()
 
 void MainWindow::saveCarto()
 {
-    QString sourcePath = "C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\Net_map\\network.bmp";  // Chemin actuel de l'image
+    QString exePath = QCoreApplication::applicationDirPath();
+    QString sourcePath = exePath + "/network.bmp";  // Chemin actuel de l'image
     QString destinationPath = QFileDialog::getSaveFileName(this,
         "Enregistrer la cartographie",
         "network.bmp",  // Nom suggéré par défaut
@@ -171,6 +183,7 @@ void MainWindow::loadXmlToTable(const QString& filePath) {
 
 
 void MainWindow::updateScanOutput() {
+
     QString output = process->readAllStandardOutput();
     output += process->readAllStandardError();
 
@@ -192,14 +205,15 @@ void MainWindow::updateScanOutput() {
 
     if (lastMatch.hasMatch()) {
         double percent = lastMatch.captured(1).toDouble();
-        QString remaining = lastMatch.captured(2);
+        if (lastProgressPercent > percent) {
+            currentScanPhase++;
+            if (currentScanPhase > 6) currentScanPhase = 6; // pas au-delà
+        }
+
+        lastProgressPercent = percent;
 
         ui->progressBar->setValue(static_cast<int>(percent));
-
-        qDebug() << "✅ Progress match trouvé :" << percent << "%, reste : " << remaining;
-    }
-    else {
-        qDebug() << "❌ Aucun match dans scanBuffer (longueur : " << scanBuffer.length() << ")";
+        ui->labelStep->setText(QString("Étape %1/6").arg(currentScanPhase));
     }
 }
 
@@ -207,10 +221,13 @@ void MainWindow::updateScanOutput() {
 
 void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
     if (exitCode == 0) {
+        QString exePath = QCoreApplication::applicationDirPath();
+        currentScanPhase = 1;
+        ui->labelStep->setText("Étape 1/6");
         ui->progressBar->setValue(0);
         createMap();
 
-        QString bmpPath = "C:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/Net_map/network.bmp";
+        QString bmpPath = exePath + "/network.bmp";
         qDebug() << "🧩 Chemin absolu image : " << bmpPath;
         qDebug() << "🧩 Existe ? " << QFile::exists(bmpPath);
 
@@ -232,7 +249,7 @@ void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
        
 
         // Charge les données XML dans le tableau
-        QString xmlPath = "C:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/Net_map/scan_network.xml";
+        QString xmlPath = exePath +"/scan_network.xml";
         if (QFile::exists(xmlPath)) {
             loadXmlToTable(xmlPath);
         }

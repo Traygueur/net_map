@@ -7,12 +7,14 @@
 #include <QTime>           // pour QTime startTime
 #include <QString>
 #include <QStringList>
+#include <QCoreApplication>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
 }
 QT_END_NAMESPACE
+
 
 class MainWindow : public QMainWindow
 {
@@ -28,6 +30,9 @@ private:
     QProcess *process = nullptr;     // le processus Nmap
     QString scanBuffer;
     QTime startTime;
+    int currentScanPhase = 1;
+    int lastProgressPercent = -1;
+
 
 private slots:
     void loadImage();
@@ -37,6 +42,5 @@ private slots:
     void updateScanOutput();
     void onScanFinished(int exitCode, QProcess::ExitStatus status);
 };
-
 
 #endif // MAINWINDOW_H

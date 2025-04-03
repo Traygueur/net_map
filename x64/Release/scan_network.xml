@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///C:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/x64/Release/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Thu Apr  3 20:25:11 2025 as: C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24 -->
+<nmaprun scanner="nmap" args="C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24" start="1743704711" startstr="Thu Apr  3 20:25:11 2025" version="7.95" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<taskprogress task="NSE" time="1743704713" percent="0.00"/>
+<taskprogress task="NSE" time="1743704715" percent="40.00" remaining="6" etc="1743704721"/>
+<taskprogress task="NSE" time="1743704717" percent="46.67" remaining="7" etc="1743704724"/>
+<taskprogress task="NSE" time="1743704719" percent="86.67" remaining="2" etc="1743704720"/>

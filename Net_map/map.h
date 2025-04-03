@@ -6,7 +6,13 @@
 #include <QMap>
 #include "QString"
 #include <QVector>
-
+#include <QMainWindow>
+#include <QScrollArea>
+#include <QProcess>
+#include <QTime>          
+#include <QString>
+#include <QStringList>
+#include <QCoreApplication>
 
 
 struct Device {
@@ -14,6 +20,8 @@ struct Device {
     std::string mac_address;
     std::vector<std::string> links;
 };
+
+
 
 int createMap();
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map);

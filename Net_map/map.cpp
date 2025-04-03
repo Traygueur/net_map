@@ -14,6 +14,8 @@
 #include <QMessageBox> // Ajout de l'inclusion nécessaire
 #include <QRegularExpressionMatch> // Ajout de l'inclusion nécessaire
 #include <QRegularExpressionMatchIterator> // Ajout de l'inclusion nécessaire
+#include <QDebug> // Ajout de l'inclusion nécessaire
+
 
    
 
@@ -42,9 +44,11 @@ void parseArpTableQt(std::unordered_map<std::string, Device>& network_map) {
 
 
 int createMap() {
+    QString exePath = QCoreApplication::applicationDirPath();
     std::unordered_map<std::string, Device> network_map;
 
-    QFile file("C:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/Net_map/scan_network.xml");
+    QString xmlPath = exePath + "/scan_network.xml";
+    QFile file(xmlPath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return 0;
     }
@@ -97,7 +101,9 @@ int createMap() {
 };
 
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map) {
-    std::ofstream file("network.dot");
+    QString exePath = QCoreApplication::applicationDirPath();
+    QString dotPath = exePath + "/network.dot";
+    std::ofstream file(dotPath.toStdString());
     file << "graph Network {\n";
     file << R"(bgcolor="#2E2E2E"; node [style=filled, fillcolor="white", fontcolor="black", color="black"]; edge [color="white"] ;ratio=expand; )";
     for (const auto& entry : network_map) {
@@ -113,10 +119,11 @@ void generateGraphe(const std::unordered_map<std::string, Device>& network_map) 
     file.close();  // Ferme le fichier
 
     QProcess process;
-    QString program = "C:\\Program Files (x86)\\Graphviz\\bin\\dot.exe";  // Chemin absolu
+    QString program = exePath + "/graphviz/dot.exe";  // Chemin absolu
     QStringList arguments = { "-Tpng", "network.dot", "-o", "network.bmp" };
 
-    process.setWorkingDirectory("C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\Net_map");
+
+    process.setWorkingDirectory(exePath);
     process.start(program, arguments);
     process.waitForFinished();
 

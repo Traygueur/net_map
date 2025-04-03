@@ -12,8 +12,10 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -40,7 +42,11 @@ public:
     QLabel *imageLabel;
     QWidget *widgetContainer;
     QVBoxLayout *verticalLayout_2;
+    QFrame *frame;
+    QVBoxLayout *verticalLayout;
     QProgressBar *progressBar;
+    QLabel *labelStep;
+    QLineEdit *lineEdit;
     QPushButton *pushButtonImage;
     QWidget *page2;
     QScrollArea *scrollArea_2;
@@ -110,38 +116,86 @@ public:
         imageLabel->setAlignment(Qt::AlignmentFlag::AlignCenter);
         widgetContainer = new QWidget(scrollAreaWidgetContents_3);
         widgetContainer->setObjectName("widgetContainer");
-        widgetContainer->setGeometry(QRect(20, 0, 931, 164));
-        QSizePolicy sizePolicy3(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Preferred);
+        widgetContainer->setGeometry(QRect(40, 0, 900, 111));
+        QSizePolicy sizePolicy3(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(widgetContainer->sizePolicy().hasHeightForWidth());
         widgetContainer->setSizePolicy(sizePolicy3);
-        widgetContainer->setMinimumSize(QSize(0, 164));
+        widgetContainer->setMinimumSize(QSize(0, 0));
         widgetContainer->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
         verticalLayout_2 = new QVBoxLayout(widgetContainer);
-        verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setSpacing(4);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setSizeConstraint(QLayout::SizeConstraint::SetDefaultConstraint);
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        progressBar = new QProgressBar(widgetContainer);
-        progressBar->setObjectName("progressBar");
-        progressBar->setEnabled(true);
-        QSizePolicy sizePolicy4(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Fixed);
+        frame = new QFrame(widgetContainer);
+        frame->setObjectName("frame");
+        QSizePolicy sizePolicy4(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
         sizePolicy4.setHorizontalStretch(0);
         sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
+        frame->setSizePolicy(sizePolicy4);
+        frame->setMinimumSize(QSize(900, 30));
+        frame->setFrameShape(QFrame::Shape::StyledPanel);
+        frame->setFrameShadow(QFrame::Shadow::Raised);
+        verticalLayout = new QVBoxLayout(frame);
+        verticalLayout->setObjectName("verticalLayout");
+        progressBar = new QProgressBar(frame);
+        progressBar->setObjectName("progressBar");
+        progressBar->setEnabled(true);
         sizePolicy4.setHeightForWidth(progressBar->sizePolicy().hasHeightForWidth());
         progressBar->setSizePolicy(sizePolicy4);
-        progressBar->setValue(24);
+        progressBar->setMinimumSize(QSize(0, 32));
+        progressBar->setStyleSheet(QString::fromUtf8("QProgressBar {\n"
+"    min-height: 30px;\n"
+"    max-height: 30px;\n"
+"    border: 1px solid #555;\n"
+"    border-radius: 5px;\n"
+"    background-color: #2E2E2E;\n"
+"    text-align: right;\n"
+"    padding: 0px;\n"
+"    margin: 0px;\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #D08BE7;\n"
+"    margin: 1px;\n"
+"    border-radius: 4px;\n"
+"}\n"
+""));
+        progressBar->setValue(26);
 
-        verticalLayout_2->addWidget(progressBar);
+        verticalLayout->addWidget(progressBar);
+
+
+        verticalLayout_2->addWidget(frame);
+
+        labelStep = new QLabel(widgetContainer);
+        labelStep->setObjectName("labelStep");
+        QSizePolicy sizePolicy5(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Preferred);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(labelStep->sizePolicy().hasHeightForWidth());
+        labelStep->setSizePolicy(sizePolicy5);
+
+        verticalLayout_2->addWidget(labelStep);
+
+        lineEdit = new QLineEdit(widgetContainer);
+        lineEdit->setObjectName("lineEdit");
+        QSizePolicy sizePolicy6(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
+        lineEdit->setSizePolicy(sizePolicy6);
+        lineEdit->setMinimumSize(QSize(170, 0));
+
+        verticalLayout_2->addWidget(lineEdit);
 
         pushButtonImage = new QPushButton(widgetContainer);
         pushButtonImage->setObjectName("pushButtonImage");
-        QSizePolicy sizePolicy5(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(pushButtonImage->sizePolicy().hasHeightForWidth());
-        pushButtonImage->setSizePolicy(sizePolicy5);
+        sizePolicy6.setHeightForWidth(pushButtonImage->sizePolicy().hasHeightForWidth());
+        pushButtonImage->setSizePolicy(sizePolicy6);
         pushButtonImage->setMinimumSize(QSize(100, 30));
 
         verticalLayout_2->addWidget(pushButtonImage);
@@ -195,6 +249,8 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionNouvellePage->setText(QCoreApplication::translate("MainWindow", "NouvellePage", nullptr));
         imageLabel->setText(QString());
+        labelStep->setText(QCoreApplication::translate("MainWindow", "Etape 1/6", nullptr));
+        lineEdit->setText(QCoreApplication::translate("MainWindow", "Mettre IP, ex : 192.168.1.0/24", nullptr));
         pushButtonImage->setText(QCoreApplication::translate("MainWindow", "Scanner le r\303\251seau", nullptr));
         menuNetMap->setTitle(QCoreApplication::translate("MainWindow", "NetMap", nullptr));
         menuEquipement->setTitle(QCoreApplication::translate("MainWindow", "Equipement", nullptr));
