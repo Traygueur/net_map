@@ -206,8 +206,8 @@ void MainWindow::securityTable(const QString& filePath) {
     QDomElement root = doc.documentElement(); // <nmaprun>
     QDomNodeList hosts = root.elementsByTagName("host");
 
-    ui->tableWidget->setRowCount(hosts.count());
-    ui->tableWidget->setColumnCount(5);
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
+    ui->tableWidget->setColumnCount(3);
     ui->tableWidget->setHorizontalHeaderLabels({ "IP", "Ports", "Protocols" });
 
     int line = 0;
