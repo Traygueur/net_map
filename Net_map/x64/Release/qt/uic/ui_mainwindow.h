@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.8.2
+** Created by: Qt User Interface Compiler version 6.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -53,10 +53,11 @@ public:
     QWidget *scrollAreaWidgetContents;
     QWidget *widget;
     QTableWidget *tableWidget;
+    QWidget *page3;
     QMenuBar *menubar;
     QMenu *menuNetMap;
-    QMenu *menuEquipement;
     QMenu *menuDevices;
+    QMenu *menuSecurity;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -217,29 +218,35 @@ public:
         widget->setGeometry(QRect(0, 0, 981, 751));
         tableWidget = new QTableWidget(widget);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(0, 0, 981, 441));
+        tableWidget->setGeometry(QRect(0, 0, 1011, 511));
         scrollArea_2->setWidget(scrollAreaWidgetContents);
         stackedWidget->addWidget(page2);
+        page3 = new QWidget();
+        page3->setObjectName("page3");
+        stackedWidget->addWidget(page3);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 1007, 21));
         menuNetMap = new QMenu(menubar);
         menuNetMap->setObjectName("menuNetMap");
-        menuEquipement = new QMenu(menubar);
-        menuEquipement->setObjectName("menuEquipement");
         menuDevices = new QMenu(menubar);
         menuDevices->setObjectName("menuDevices");
+        menuSecurity = new QMenu(menubar);
+        menuSecurity->setObjectName("menuSecurity");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
 
         menubar->addAction(menuNetMap->menuAction());
-        menubar->addAction(menuEquipement->menuAction());
         menubar->addAction(menuDevices->menuAction());
+        menubar->addAction(menuSecurity->menuAction());
 
         retranslateUi(MainWindow);
+
+        stackedWidget->setCurrentIndex(2);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -253,8 +260,8 @@ public:
         lineEdit->setText(QCoreApplication::translate("MainWindow", "Mettre IP, ex : 192.168.1.0/24", nullptr));
         pushButtonImage->setText(QCoreApplication::translate("MainWindow", "Scanner le r\303\251seau", nullptr));
         menuNetMap->setTitle(QCoreApplication::translate("MainWindow", "NetMap", nullptr));
-        menuEquipement->setTitle(QCoreApplication::translate("MainWindow", "Equipement", nullptr));
         menuDevices->setTitle(QCoreApplication::translate("MainWindow", "Devices", nullptr));
+        menuSecurity->setTitle(QCoreApplication::translate("MainWindow", "Security", nullptr));
     } // retranslateUi
 
 };

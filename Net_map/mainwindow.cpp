@@ -21,14 +21,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->scrollArea->setStyleSheet("background-color: #2E2E2E;");
     setFixedSize(1007, 511);
-    connect(ui->pushButtonImage, &QPushButton::clicked, this, &MainWindow::loadImage);
+    connect(ui->pushButtonImage, &QPushButton::clicked, this, &MainWindow::nmapScan);
     QAction *actionSaveCarto = new QAction("Enregistrer la cartographie", this);
-    QAction *actionNouvellePage = new QAction("Changer de page", this);
-    ui->menuEquipement->addAction(actionNouvellePage);
-    ui->menuNetMap->addAction(actionNouvellePage);
+    //QAction *actionNouvellePage = new QAction("Changer de page", this);
+    //ui->menuNetMap->addAction(actionNouvellePage);
     ui->menuNetMap->addAction(actionSaveCarto);
-    connect(actionNouvellePage, &QAction::triggered, this, &MainWindow::ouvrirPage);
     connect(actionSaveCarto, &QAction::triggered, this, &MainWindow::saveCarto);
+
+    manageActionMenu(ui->menuNetMap, "Changer de page", 0);
+    manageActionMenu(ui->menuDevices, "Changer de page", 1);
+    manageActionMenu(ui->menuSecurity, "Changer de page", 2);
+
 
 
 
@@ -47,7 +50,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::loadImage()
+void MainWindow::manageActionMenu(QMenu* menu, QString texte, int index) {
+    QAction* action = new QAction(texte, this);
+    action->setData(index);
+    connect(action, &QAction::triggered, this, [this, action]() {
+        ouvrirPage(action->data().toInt());
+        });
+    menu->addAction(action);
+}
+
+void MainWindow::nmapScan()
 {
 
     QString ipRange = ui->lineEdit->text().trimmed();
@@ -57,7 +69,7 @@ void MainWindow::loadImage()
 	}
 
     QString exePath = QCoreApplication::applicationDirPath();
-    qDebug() << "loadImage() est appelé !";  // Vérification
+    qDebug() << "nmapScan() est appelé !";  // Vérification
 	qDebug() << "exePath : " << exePath;  // Vérification
 
     ui->progressBar->setValue(0);
@@ -89,14 +101,9 @@ void MainWindow::loadImage()
 }
 
 
-void MainWindow::ouvrirPage()
+void MainWindow::ouvrirPage(int index)
 {
-    if (ui->stackedWidget->currentWidget() == ui->page1) {
-        ui->stackedWidget->setCurrentIndex(1);
-    }
-    else if (ui->stackedWidget->currentWidget() == ui->page2) {
-        ui->stackedWidget->setCurrentIndex(0);
-    }
+    ui->stackedWidget->setCurrentIndex(index);
 }
 
 void MainWindow::saveCarto()
@@ -181,13 +188,82 @@ void MainWindow::loadXmlToTable(const QString& filePath) {
     }
 }
 
+void MainWindow::securityTable(const QString& filePath) {
+    QFile file(filePath);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::critical(this, "Erreur", "Impossible d'ouvrir le fichier XML");
+        return;
+    }
+
+    QDomDocument doc;
+    if (!doc.setContent(&file)) {
+        QMessageBox::critical(this, "Erreur", "Le fichier XML est invalide");
+        file.close();
+        return;
+    }
+    file.close();
+
+    QDomElement root = doc.documentElement(); // <nmaprun>
+    QDomNodeList hosts = root.elementsByTagName("host");
+
+    ui->tableWidget->setRowCount(hosts.count());
+    ui->tableWidget->setColumnCount(5);
+    ui->tableWidget->setHorizontalHeaderLabels({ "IP", "Ports", "Protocols" });
+
+    int line = 0;
+
+    for (int i = 0; i < hosts.count(); ++i) {
+        QDomElement host = hosts.at(i).toElement();
+
+        QString ip, Ports, Protocols;
+
+        // Adresse IP + MAC
+        QDomNodeList addresses = host.elementsByTagName("address");
+        for (int j = 0; j < addresses.count(); ++j) {
+            QDomElement address = addresses.at(j).toElement();
+            QString addr = address.attribute("addr");
+            QString type = address.attribute("addrtype");
+
+            if (type == "ipv4") ip = addr;
+        }
+
+        ui->tableWidget->setItem(line, 0, new QTableWidgetItem(ip));
+
+        // Ports "spécials" à partir de <ports>...<port ...>
+        QDomNodeList portsItems = host.elementsByTagName("ports");
+        if (!portsItems.isEmpty()) {
+            for (int j = 0; j < portsItems.count(); ++j) {
+                QDomElement portsElement = portsItems.at(j).toElement();
+                QDomNodeList portList = portsElement.elementsByTagName("port");
+
+                for (int k = 0; k < portList.count(); ++k) {
+                    QDomElement portElement = portList.at(k).toElement();
+                    QString portId = portElement.attribute("portid");
+
+                    QDomElement serviceElement = portElement.firstChildElement("service");
+                    QString serviceName;
+                    if (!serviceElement.isNull()) {
+                        serviceName = serviceElement.attribute("name");
+                    }
+
+                    ui->tableWidget->setItem(i, 1, new QTableWidgetItem(Ports));
+                    ui->tableWidget->setItem(i, 2, new QTableWidgetItem(Protocols));
+
+                    line++;
+
+                }
+            }
+        }
+    }
+}
+
 
 void MainWindow::updateScanOutput() {
 
     QString output = process->readAllStandardOutput();
     output += process->readAllStandardError();
 
-    qDebug() << "📥 Nmap Output brut >>" << output;
+    qDebug() << "Nmap Output brut >>" << output;
 
     scanBuffer += output;
 
@@ -252,6 +328,7 @@ void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
         QString xmlPath = exePath +"/scan_network.xml";
         if (QFile::exists(xmlPath)) {
             loadXmlToTable(xmlPath);
+            securityTable(xmlPath);
         }
         else {
             qDebug() << "❌ Fichier XML introuvable : " << xmlPath;

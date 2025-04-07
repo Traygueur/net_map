@@ -53,6 +53,9 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
     <widget class="QWidget" name="page1">
      <widget class="QScrollArea" name="scrollArea">
       <property name="geometry">
@@ -339,8 +342,8 @@ QProgressBar::chunk {
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>981</width>
-           <height>441</height>
+           <width>1011</width>
+           <height>511</height>
           </rect>
          </property>
         </widget>
@@ -348,6 +351,7 @@ QProgressBar::chunk {
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="page3"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -364,19 +368,19 @@ QProgressBar::chunk {
      <string>NetMap</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuEquipement">
-    <property name="title">
-     <string>Equipement</string>
-    </property>
-   </widget>
    <widget class="QMenu" name="menuDevices">
     <property name="title">
      <string>Devices</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuSecurity">
+    <property name="title">
+     <string>Security</string>
+    </property>
+   </widget>
    <addaction name="menuNetMap"/>
-   <addaction name="menuEquipement"/>
    <addaction name="menuDevices"/>
+   <addaction name="menuSecurity"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNouvellePage">

@@ -120,7 +120,7 @@ void generateGraphe(const std::unordered_map<std::string, Device>& network_map) 
 
     QProcess process;
     QString program = exePath + "/graphviz/dot.exe";  // Chemin absolu
-    QStringList arguments = { "-Tpng", "network.dot", "-o", "network.bmp" };
+    QStringList arguments = { "-Kcirco", "-Tpng", "network.dot", "-o", "network.bmp" };
 
 
     process.setWorkingDirectory(exePath);

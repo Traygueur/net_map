@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE nmaprun>
-<?xml-stylesheet href="file:///C:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/x64/Release/nmap/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 7.95 scan initiated Thu Apr  3 20:25:11 2025 as: C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24 -->
-<nmaprun scanner="nmap" args="C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24" start="1743704711" startstr="Thu Apr  3 20:25:11 2025" version="7.95" xmloutputversion="1.05">
+<?xml-stylesheet href="file:///D:/Travail/ESAIP/Bachelor 2/Net_map_solution/x64/Release/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Mon Apr  7 18:34:27 2025 as: &quot;D:\\Travail\\ESAIP\\Bachelor 2\\Net_map_solution\\x64\\Release\\nmap\\nmap.exe&quot; -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 172.16.80.0/24 -->
+<nmaprun scanner="nmap" args="&quot;D:\\Travail\\ESAIP\\Bachelor 2\\Net_map_solution\\x64\\Release\\nmap\\nmap.exe&quot; -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 172.16.80.0/24" start="1744043667" startstr="Mon Apr  7 18:34:27 2025" version="7.95" xmloutputversion="1.05">
 <scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
 <verbose level="0"/>
 <debugging level="0"/>
-<taskprogress task="NSE" time="1743704713" percent="0.00"/>
-<taskprogress task="NSE" time="1743704715" percent="40.00" remaining="6" etc="1743704721"/>
-<taskprogress task="NSE" time="1743704717" percent="46.67" remaining="7" etc="1743704724"/>
-<taskprogress task="NSE" time="1743704719" percent="86.67" remaining="2" etc="1743704720"/>
+<taskprogress task="NSE" time="1744043668" percent="4.00" remaining="24" etc="1744043692"/>
+<taskprogress task="NSE" time="1744043670" percent="16.00" remaining="16" etc="1744043686"/>
+<taskprogress task="NSE" time="1744043672" percent="40.00" remaining="8" etc="1744043680"/>
+<taskprogress task="NSE" time="1744043674" percent="52.00" remaining="7" etc="1744043680"/>
+<taskprogress task="NSE" time="1744043676" percent="76.00" remaining="3" etc="1744043679"/>
+<prescript><script id="broadcast-ping" output="&#xa;  IP: 172.16.81.66   MAC: 06:51:92:c8:ca:1e&#xa;  IP: 172.16.81.22   MAC: cc:08:fa:aa:1a:bf&#xa;  IP: 172.16.80.231  MAC: 22:43:dc:66:5f:44&#xa;  Use -&#45;script-args=newtargets to add the results as targets&#xa;"/><script id="broadcast-dhcp-discover" output="&#xa;  Response 1 of 2: &#xa;    Interface: eth4&#xa;    IP Offered: 192.168.75.132&#xa;    DHCP Message Type: DHCPOFFER&#xa;    Server Identifier: 192.168.75.254&#xa;    IP Address Lease Time: 30m00s&#xa;    Subnet Mask: 255.255.255.0&#xa;    Domain Name Server: 192.168.75.1&#xa;    Domain Name: localdomain&#xa;    Broadcast Address: 192.168.75.255&#xa;    Renewal Time Value: 15m00s&#xa;    Rebinding Time Value: 26m15s&#xa;  Response 2 of 2: &#xa;    Interface: eth5&#xa;    IP Offered: 192.168.174.132&#xa;    DHCP Message Type: DHCPOFFER&#xa;    Server Identifier: 192.168.174.254&#xa;    IP Address Lease Time: 30m00s&#xa;    Subnet Mask: 255.255.255.0&#xa;    Router: 192.168.174.2&#xa;    Domain Name Server: 192.168.174.2&#xa;    Domain Name: localdomain&#xa;    Broadcast Address: 192.168.174.255&#xa;    NetBIOS Name Server: 192.168.174.2&#xa;    Renewal Time Value: 15m00s&#xa;    Rebinding Time Value: 26m15s"><table key="Response 1 of 2">
+<elem key="Interface">eth4</elem>
+<elem key="IP Offered">192.168.75.132</elem>
+<elem key="DHCP Message Type">DHCPOFFER</elem>
+<elem key="Server Identifier">192.168.75.254</elem>
+<elem key="IP Address Lease Time">30m00s</elem>
+<elem key="Subnet Mask">255.255.255.0</elem>
+<elem key="Domain Name Server">192.168.75.1</elem>
+<elem key="Domain Name">localdomain</elem>
+<elem key="Broadcast Address">192.168.75.255</elem>
+<elem key="Renewal Time Value">15m00s</elem>
+<elem key="Rebinding Time Value">26m15s</elem>
+</table>
+<table key="Response 2 of 2">
+<elem key="Interface">eth5</elem>
+<elem key="IP Offered">192.168.174.132</elem>
+<elem key="DHCP Message Type">DHCPOFFER</elem>
+<elem key="Server Identifier">192.168.174.254</elem>
+<elem key="IP Address Lease Time">30m00s</elem>
+<elem key="Subnet Mask">255.255.255.0</elem>
+<elem key="Router">192.168.174.2</elem>
+<elem key="Domain Name Server">192.168.174.2</elem>
+<elem key="Domain Name">localdomain</elem>
+<elem key="Broadcast Address">192.168.174.255</elem>
+<elem key="NetBIOS Name Server">192.168.174.2</elem>
+<elem key="Renewal Time Value">15m00s</elem>
+<elem key="Rebinding Time Value">26m15s</elem>
+</table>
+</script></prescript><taskprogress task="ARP Ping Scan" time="1744043679" percent="1.95" remaining="51" etc="1744043729"/>
+<taskprogress task="ARP Ping Scan" time="1744043680" percent="18.36" remaining="9" etc="1744043689"/>
+<taskprogress task="ARP Ping Scan" time="1744043682" percent="37.30" remaining="7" etc="1744043689"/>
+<taskprogress task="ARP Ping Scan" time="1744043684" percent="56.64" remaining="5" etc="1744043689"/>
+<taskprogress task="ARP Ping Scan" time="1744043686" percent="75.78" remaining="3" etc="1744043689"/>
+<taskprogress task="ARP Ping Scan" time="1744043688" percent="94.53" remaining="1" etc="1744043689"/>
+<runstats><finished time="1744043690" timestr="Mon Apr  7 18:34:50 2025" summary="Nmap done at Mon Apr  7 18:34:50 2025; 256 IP addresses (0 hosts up) scanned in 23.45 seconds" elapsed="23.45" exit="success"/><hosts up="0" down="256" total="256"/>
+</runstats>
+</nmaprun>
