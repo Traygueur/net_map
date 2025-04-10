@@ -22,17 +22,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->scrollArea->setStyleSheet("background-color: #2E2E2E;");
     setFixedSize(1007, 511);
     connect(ui->pushButtonImage, &QPushButton::clicked, this, &MainWindow::nmapScan);
-    QAction *actionSaveCarto = new QAction("Enregistrer la cartographie", this);
     //QAction *actionNouvellePage = new QAction("Changer de page", this);
     //ui->menuNetMap->addAction(actionNouvellePage);
-    ui->menuNetMap->addAction(actionSaveCarto);
-    connect(actionSaveCarto, &QAction::triggered, this, &MainWindow::saveCarto);
 
+    // Nav Function
     manageActionMenu(ui->menuNetMap, "Changer de page", 0);
     manageActionMenu(ui->menuDevices, "Changer de page", 1);
     manageActionMenu(ui->menuSecurity, "Changer de page", 2);
 
-
+    // Save carto
+    QAction *actionSaveCarto = new QAction("Enregistrer la cartographie", this);
+    ui->menuNetMap->addAction(actionSaveCarto);
+    connect(actionSaveCarto, &QAction::triggered, this, &MainWindow::saveCarto);
 
 
     ui->progressBar->setValue(0);
@@ -43,6 +44,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     scrollLayout->addWidget(ui->imageLabel);
     ui->progressBar->setStyleSheet("QProgressBar { min-height: 30px; max-height: 30px; }");
+
+    connect(ui->checkBoxOpen, &QCheckBox::checkStateChanged, this, &MainWindow::updateSecurityTable);
+    connect(ui->checkBoxFiltered, &QCheckBox::checkStateChanged, this, &MainWindow::updateSecurityTable);
+    connect(ui->checkBoxClosed, &QCheckBox::checkStateChanged, this, &MainWindow::updateSecurityTable);
+
 }
 
 MainWindow::~MainWindow()
@@ -99,7 +105,6 @@ void MainWindow::nmapScan()
     process->start(program, arguments);
 
 }
-
 
 void MainWindow::ouvrirPage(int index)
 {
@@ -206,16 +211,16 @@ void MainWindow::securityTable(const QString& filePath) {
     QDomElement root = doc.documentElement(); // <nmaprun>
     QDomNodeList hosts = root.elementsByTagName("host");
 
-    ui->tableWidget->insertRow(ui->tableWidget->rowCount());
-    ui->tableWidget->setColumnCount(3);
-    ui->tableWidget->setHorizontalHeaderLabels({ "IP", "Ports", "Protocols" });
+    ui->tableWidget_2->insertRow(ui->tableWidget_2->rowCount());
+    ui->tableWidget_2->setColumnCount(3);
+    ui->tableWidget_2->setHorizontalHeaderLabels({ "IP", "Ports", "Protocols", "State"});
 
     int line = 0;
 
     for (int i = 0; i < hosts.count(); ++i) {
         QDomElement host = hosts.at(i).toElement();
 
-        QString ip, Ports, Protocols;
+        QString ip, Ports, Protocols, State;
 
         // Adresse IP + MAC
         QDomNodeList addresses = host.elementsByTagName("address");
@@ -226,8 +231,8 @@ void MainWindow::securityTable(const QString& filePath) {
 
             if (type == "ipv4") ip = addr;
         }
-
-        ui->tableWidget->setItem(line, 0, new QTableWidgetItem(ip));
+        ui->tableWidget_2->insertRow(line);
+        ui->tableWidget_2->setItem(line, 0, new QTableWidgetItem(ip));
 
         // Ports "spécials" à partir de <ports>...<port ...>
         QDomNodeList portsItems = host.elementsByTagName("ports");
@@ -238,16 +243,21 @@ void MainWindow::securityTable(const QString& filePath) {
 
                 for (int k = 0; k < portList.count(); ++k) {
                     QDomElement portElement = portList.at(k).toElement();
-                    QString portId = portElement.attribute("portid");
+                    Ports = portElement.attribute("portid");
 
                     QDomElement serviceElement = portElement.firstChildElement("service");
-                    QString serviceName;
                     if (!serviceElement.isNull()) {
-                        serviceName = serviceElement.attribute("name");
+                        Protocols = serviceElement.attribute("name");
                     }
 
-                    ui->tableWidget->setItem(i, 1, new QTableWidgetItem(Ports));
-                    ui->tableWidget->setItem(i, 2, new QTableWidgetItem(Protocols));
+                    QDomElement stateElement = portElement.firstChildElement("state");
+                    if (!stateElement.isNull()) {
+                        State = stateElement.attribute("state");
+                    }
+
+                    ui->tableWidget_2->setItem(line, 1, new QTableWidgetItem(Ports));
+                    ui->tableWidget_2->setItem(line, 2, new QTableWidgetItem(Protocols));
+                    ui->tableWidget_2->setItem(line, 3, new QTableWidgetItem(State));
 
                     line++;
 
@@ -257,6 +267,17 @@ void MainWindow::securityTable(const QString& filePath) {
     }
 }
 
+void MainWindow::updateSecurityTable() {
+    for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
+        QString state = ui->tableWidget_2->item(row, 3)->text(); // colonne 3 = état
+
+        bool show = (state == "open" && ui->checkBoxOpen->isChecked()) ||
+            (state == "filtered" && ui->checkBoxFiltered->isChecked()) ||
+            (state == "closed" && ui->checkBoxClosed->isChecked());
+
+        ui->tableWidget_2->setRowHidden(row, !show);
+    }
+}
 
 void MainWindow::updateScanOutput() {
 
@@ -292,8 +313,6 @@ void MainWindow::updateScanOutput() {
         ui->labelStep->setText(QString("Étape %1/6").arg(currentScanPhase));
     }
 }
-
-
 
 void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
     if (exitCode == 0) {

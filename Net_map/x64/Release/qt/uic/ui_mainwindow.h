@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -54,6 +55,14 @@ public:
     QWidget *widget;
     QTableWidget *tableWidget;
     QWidget *page3;
+    QScrollArea *scrollArea_3;
+    QWidget *scrollAreaWidgetContents_2;
+    QWidget *widget_2;
+    QTableWidget *tableWidget_2;
+    QWidget *widget_3;
+    QCheckBox *checkBoxClosed;
+    QCheckBox *checkBoxFiltered;
+    QCheckBox *checkBoxOpen;
     QMenuBar *menubar;
     QMenu *menuNetMap;
     QMenu *menuDevices;
@@ -223,6 +232,32 @@ public:
         stackedWidget->addWidget(page2);
         page3 = new QWidget();
         page3->setObjectName("page3");
+        scrollArea_3 = new QScrollArea(page3);
+        scrollArea_3->setObjectName("scrollArea_3");
+        scrollArea_3->setGeometry(QRect(-1, -1, 1001, 511));
+        scrollArea_3->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 999, 509));
+        widget_2 = new QWidget(scrollAreaWidgetContents_2);
+        widget_2->setObjectName("widget_2");
+        widget_2->setGeometry(QRect(0, 0, 1001, 511));
+        tableWidget_2 = new QTableWidget(widget_2);
+        tableWidget_2->setObjectName("tableWidget_2");
+        tableWidget_2->setGeometry(QRect(5, 31, 991, 481));
+        widget_3 = new QWidget(widget_2);
+        widget_3->setObjectName("widget_3");
+        widget_3->setGeometry(QRect(10, 0, 341, 31));
+        checkBoxClosed = new QCheckBox(widget_3);
+        checkBoxClosed->setObjectName("checkBoxClosed");
+        checkBoxClosed->setGeometry(QRect(190, 0, 81, 31));
+        checkBoxFiltered = new QCheckBox(widget_3);
+        checkBoxFiltered->setObjectName("checkBoxFiltered");
+        checkBoxFiltered->setGeometry(QRect(90, 0, 91, 31));
+        checkBoxOpen = new QCheckBox(widget_3);
+        checkBoxOpen->setObjectName("checkBoxOpen");
+        checkBoxOpen->setGeometry(QRect(0, 0, 81, 31));
+        scrollArea_3->setWidget(scrollAreaWidgetContents_2);
         stackedWidget->addWidget(page3);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -245,7 +280,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -259,6 +294,9 @@ public:
         labelStep->setText(QCoreApplication::translate("MainWindow", "Etape 1/6", nullptr));
         lineEdit->setText(QCoreApplication::translate("MainWindow", "Mettre IP, ex : 192.168.1.0/24", nullptr));
         pushButtonImage->setText(QCoreApplication::translate("MainWindow", "Scanner le r\303\251seau", nullptr));
+        checkBoxClosed->setText(QCoreApplication::translate("MainWindow", "Closed Port", nullptr));
+        checkBoxFiltered->setText(QCoreApplication::translate("MainWindow", "Filtered Port", nullptr));
+        checkBoxOpen->setText(QCoreApplication::translate("MainWindow", "Open Port", nullptr));
         menuNetMap->setTitle(QCoreApplication::translate("MainWindow", "NetMap", nullptr));
         menuDevices->setTitle(QCoreApplication::translate("MainWindow", "Devices", nullptr));
         menuSecurity->setTitle(QCoreApplication::translate("MainWindow", "Security", nullptr));
