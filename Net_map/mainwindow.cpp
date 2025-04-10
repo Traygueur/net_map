@@ -12,6 +12,7 @@
 #include <QProcess>
 #include <QProgressBar>
 #include <QLineEdit>
+#include <QWheelEvent>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -38,8 +39,14 @@ MainWindow::MainWindow(QWidget *parent)
     QVBoxLayout* scrollLayout = new QVBoxLayout(ui->scrollAreaWidgetContents_3); 
     scrollLayout->setSpacing(10);
 
-    scrollLayout->addWidget(ui->imageLabel);
     ui->progressBar->setStyleSheet("QProgressBar { min-height: 30px; max-height: 30px; }");
+
+
+    scene = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+    ui->graphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
+    ui->graphicsView->setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
 }
 
 MainWindow::~MainWindow()
@@ -67,7 +74,7 @@ void MainWindow::loadImage()
     QString program = exePath + "/nmap/nmap.exe";
     QStringList arguments = {
          "-sS", "-O", "-F",
-         "--script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery",
+        "--script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery",
          "--stats-every", "2s",
          "-oX", "scan_network.xml",
          ipRange
@@ -102,11 +109,11 @@ void MainWindow::ouvrirPage()
 void MainWindow::saveCarto()
 {
     QString exePath = QCoreApplication::applicationDirPath();
-    QString sourcePath = exePath + "/network.bmp";  // Chemin actuel de l'image
+    QString sourcePath = exePath + "/network.png";  // Chemin actuel de l'image
     QString destinationPath = QFileDialog::getSaveFileName(this,
         "Enregistrer la cartographie",
-        "network.bmp",  // Nom suggéré par défaut
-        "Images BMP (*.bmp)");
+        "network.png",  // Nom suggéré par défaut
+        "Images PNG (*.png)");
 
     if (destinationPath.isEmpty())
         return;
@@ -227,23 +234,16 @@ void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
         ui->progressBar->setValue(0);
         createMap();
 
-        QString bmpPath = exePath + "/network.bmp";
+        QString bmpPath = exePath + "/network.png";
         qDebug() << "🧩 Chemin absolu image : " << bmpPath;
         qDebug() << "🧩 Existe ? " << QFile::exists(bmpPath);
 
         QPixmap pixmap(bmpPath);
         qDebug() << "🧩 Taille du pixmap : " << pixmap.size();
 
-        if (pixmap.isNull()) {
-            qDebug() << "❌ L'image BMP n'a pas été trouvée ou est vide !";
-            ui->imageLabel->setText("Erreur : Impossible de charger l'image !");
-            return;
-        }
-
         // Affiche l'image dans le QLabel
-        ui->imageLabel->setPixmap(pixmap);
-        ui->imageLabel->adjustSize();  // ajuste la taille du QLabel à celle de l’image
-        ui->imageLabel->setFixedSize(pixmap.size());
+        pixmapItem = scene->addPixmap(pixmap);
+        scene->setSceneRect(pixmap.rect());
 
         // (facultatif, pour test visuel)
        
@@ -259,6 +259,20 @@ void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
     }
     else {
         qDebug() << "❌ Scan Nmap échoué avec exitCode =" << exitCode;
+    }
+}
+
+void MainWindow::wheelEvent(QWheelEvent* event) {
+    if (ui->graphicsView->underMouse() && (event->modifiers() & Qt::ControlModifier)) {
+        const double zoomFactor = 1.15;
+        if (event->angleDelta().y() > 0)
+            ui->graphicsView->scale(zoomFactor, zoomFactor);
+        else
+            ui->graphicsView->scale(1.0 / zoomFactor, 1.0 / zoomFactor);
+        event->accept();
+    }
+    else {
+        QMainWindow::wheelEvent(event);
     }
 }
 

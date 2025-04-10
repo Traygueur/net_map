@@ -1,12 +1,270 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE nmaprun>
 <?xml-stylesheet href="file:///C:/Users/coulo/Documents/ESAIP/PROJECT_APPLICATIF_C++/net_map/x64/Release/nmap/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 7.95 scan initiated Thu Apr  3 20:25:11 2025 as: C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24 -->
-<nmaprun scanner="nmap" args="C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 192.168.1.0/24" start="1743704711" startstr="Thu Apr  3 20:25:11 2025" version="7.95" xmloutputversion="1.05">
+<!-- Nmap 7.95 scan initiated Thu Apr 10 12:07:23 2025 as: C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 172.16.80.0/26 -->
+<nmaprun scanner="nmap" args="C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\x64\\Release\\nmap\\nmap.exe -sS -O -F -&#45;script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery -&#45;stats-every 2s -oX scan_network.xml 172.16.80.0/26" start="1744279643" startstr="Thu Apr 10 12:07:23 2025" version="7.95" xmloutputversion="1.05">
 <scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
 <verbose level="0"/>
 <debugging level="0"/>
-<taskprogress task="NSE" time="1743704713" percent="0.00"/>
-<taskprogress task="NSE" time="1743704715" percent="40.00" remaining="6" etc="1743704721"/>
-<taskprogress task="NSE" time="1743704717" percent="46.67" remaining="7" etc="1743704724"/>
-<taskprogress task="NSE" time="1743704719" percent="86.67" remaining="2" etc="1743704720"/>
+<taskprogress task="NSE" time="1744279645" percent="0.00"/>
+<taskprogress task="NSE" time="1744279647" percent="27.78" remaining="11" etc="1744279657"/>
+<taskprogress task="NSE" time="1744279649" percent="38.89" remaining="10" etc="1744279658"/>
+<taskprogress task="NSE" time="1744279651" percent="77.78" remaining="3" etc="1744279653"/>
+<taskprogress task="NSE" time="1744279653" percent="83.33" remaining="2" etc="1744279655"/>
+<prescript><script id="broadcast-ping" output="&#xa;  IP: 172.16.81.12   MAC: fa:04:d3:c6:c2:84&#xa;  IP: 172.16.80.25   MAC: 82:a5:72:11:a1:20&#xa;  IP: 172.16.81.46   MAC: 36:d2:7f:16:a1:2d&#xa;  IP: 172.16.80.232  MAC: d0:81:7a:a6:18:46&#xa;  IP: 172.16.81.43   MAC: 06:91:f9:42:f7:87&#xa;  IP: 172.16.80.118  MAC: 0a:22:3d:39:02:c2&#xa;  Use -&#45;script-args=newtargets to add the results as targets&#xa;"/><script id="broadcast-igmp-discovery" output="&#xa;  172.16.80.25&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.80.80&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.80.118&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.80.145&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.80.196&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.81.35&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.81.35&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.252&#xa;    Description: Link-local Multicast Name Resolution (rfc4795)&#xa;  172.16.81.47&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.252&#xa;    Description: Link-local Multicast Name Resolution (rfc4795)&#xa;  172.16.81.48&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.81.49&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.81.49&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.252&#xa;    Description: Link-local Multicast Name Resolution (rfc4795)&#xa;  172.16.81.55&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.251&#xa;    Description: mDNS (rfc6762)&#xa;  172.16.81.55&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 224.0.0.252&#xa;    Description: Link-local Multicast Name Resolution (rfc4795)&#xa;  172.16.80.80&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 239.255.255.250&#xa;    Description: Organization-Local Scope (rfc2365)&#xa;  172.16.80.88&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 239.255.255.250&#xa;    Description: Organization-Local Scope (rfc2365)&#xa;  172.16.81.44&#xa;    Interface: eth5&#xa;    Version: 2&#xa;    Group: 239.255.255.250&#xa;    Description: Organization-Local Scope (rfc2365)&#xa;  Use the newtargets script-arg to add the results as targets&#xa;"/></prescript><hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.1" addrtype="ipv4"/>
+<address addr="00:09:0F:09:00:12" addrtype="mac" vendor="Fortinet"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.4" addrtype="ipv4"/>
+<address addr="72:E3:68:49:C4:AF" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.6" addrtype="ipv4"/>
+<address addr="CE:4E:F9:39:3B:B5" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.15" addrtype="ipv4"/>
+<address addr="92:FE:5A:E3:ED:9C" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.25" addrtype="ipv4"/>
+<address addr="82:A5:72:11:A1:20" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.51" addrtype="ipv4"/>
+<address addr="22:6F:B6:19:EC:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.60" addrtype="ipv4"/>
+<address addr="DA:90:B3:97:60:30" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.12" addrtype="ipv4"/>
+<address addr="9E:58:08:D4:AF:56" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.49" addrtype="ipv4"/>
+<address addr="AE:D7:B5:C7:D1:A0" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<taskprogress task="ARP Ping Scan" time="1744279655" percent="57.03" remaining="2" etc="1744279657"/>
+<taskprogress task="SYN Stealth Scan" time="1744279657" percent="41.87" remaining="3" etc="1744279660"/>
+<taskprogress task="SYN Stealth Scan" time="1744279659" percent="46.28" remaining="5" etc="1744279664"/>
+<taskprogress task="SYN Stealth Scan" time="1744279661" percent="47.87" remaining="7" etc="1744279668"/>
+<taskprogress task="SYN Stealth Scan" time="1744279663" percent="51.93" remaining="8" etc="1744279670"/>
+<taskprogress task="SYN Stealth Scan" time="1744279665" percent="59.65" remaining="7" etc="1744279672"/>
+<taskprogress task="SYN Stealth Scan" time="1744279667" percent="66.96" remaining="6" etc="1744279673"/>
+<taskprogress task="SYN Stealth Scan" time="1744279669" percent="73.55" remaining="6" etc="1744279674"/>
+<taskprogress task="SYN Stealth Scan" time="1744279671" percent="78.78" remaining="5" etc="1744279675"/>
+<taskprogress task="SYN Stealth Scan" time="1744279673" percent="85.11" remaining="4" etc="1744279676"/>
+<taskprogress task="SYN Stealth Scan" time="1744279675" percent="96.08" remaining="1" etc="1744279676"/>
+<taskprogress task="SYN Stealth Scan" time="1744279677" percent="98.76" remaining="1" etc="1744279677"/>
+<taskprogress task="SYN Stealth Scan" time="1744279679" percent="100.00" remaining="1" etc="1744279679"/>
+<taskprogress task="SYN Stealth Scan" time="1744279681" percent="100.00" remaining="1" etc="1744279681"/>
+<taskprogress task="SYN Stealth Scan" time="1744279683" percent="100.00" remaining="1" etc="1744279683"/>
+<host starttime="1744279655" endtime="1744279697"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.1" addrtype="ipv4"/>
+<address addr="00:09:0F:09:00:12" addrtype="mac" vendor="Fortinet"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="98">
+<extrareasons reason="no-response" count="98" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,119,135,139,143-144,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="113"><state state="closed" reason="reset" reason_ttl="64"/><service name="ident" method="table" conf="3"/></port>
+<port protocol="tcp" portid="179"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="bgp" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="179"/>
+<portused state="closed" proto="tcp" portid="113"/>
+<osmatch name="Cognitive CXI thermal printer" accuracy="89" line="20795">
+<osclass type="printer" vendor="Cognitive" osfamily="embedded" accuracy="89"/>
+</osmatch>
+<osmatch name="Fortinet FortiOS 6.2 - 7.2" accuracy="89" line="27333">
+<osclass type="security-misc" vendor="Fortinet" osfamily="FortiOS" osgen="6.X" accuracy="89"><cpe>cpe:/o:fortinet:fortios:6</cpe></osclass>
+<osclass type="security-misc" vendor="Fortinet" osfamily="FortiOS" osgen="7.X" accuracy="89"><cpe>cpe:/o:fortinet:fortios:7</cpe></osclass>
+</osmatch>
+<osmatch name="Fortinet FortiOS 7" accuracy="89" line="27353">
+<osclass type="security-misc" vendor="Fortinet" osfamily="FortiOS" osgen="7.X" accuracy="89"><cpe>cpe:/o:fortinet:fortios:7</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="84258" lastboot="Wed Apr  9 12:43:59 2025"/>
+<distance value="1"/>
+<tcpsequence index="258" difficulty="Good luck!" values="70FA17D1,7AB528FA,D17933BF,F32CBF57,DA197652,2CAE20D4"/>
+<ipidsequence class="Incremental" values="B333,B334,B335,B336,B337,B338"/>
+<tcptssequence class="100HZ" values="809034,809040,80904B,809056,809061,80906D"/>
+<times srtt="3825" rttvar="1003" to="100000"/>
+</host>
+<host starttime="1744279655" endtime="1744279697"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.4" addrtype="ipv4"/>
+<address addr="72:E3:68:49:C4:AF" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<os></os>
+<distance value="1"/>
+<times srtt="68000" rttvar="68000" to="340000"/>
+</host>
+<host starttime="1744279655" endtime="1744279693"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.6" addrtype="ipv4"/>
+<address addr="CE:4E:F9:39:3B:B5" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="99">
+<extrareasons reason="reset" count="99" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49153-49157"/>
+</extraports>
+<port protocol="tcp" portid="49152"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="49152"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="39302"/>
+<osmatch name="Apple macOS 12 (Monterey) (Darwin 21.6.0)" accuracy="100" line="8058">
+<osclass type="general purpose" vendor="Apple" osfamily="macOS" osgen="12.X" accuracy="100"><cpe>cpe:/o:apple:mac_os_x:12</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="13" lastboot="Thu Apr 10 12:08:04 2025"/>
+<distance value="1"/>
+<tcpsequence index="261" difficulty="Good luck!" values="C18BF9F6,68C40121,7D2288FB,4CF0BCF1,2F54F06E,B345D439"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="other" values="DE9320B7,3354EC85,79A53252,4BDDC3AE,60BC4681,18162EE7"/>
+<times srtt="38084" rttvar="49306" to="235308"/>
+</host>
+<host starttime="1744279655" endtime="1744279697"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.12" addrtype="ipv4"/>
+<address addr="9E:58:08:D4:AF:56" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="100">
+<extrareasons reason="reset" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<os><portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="36737"/>
+</os>
+<distance value="1"/>
+<times srtt="18074" rttvar="19162" to="100000"/>
+</host>
+<host starttime="1744279655" endtime="1744279697"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.15" addrtype="ipv4"/>
+<address addr="92:FE:5A:E3:ED:9C" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="100">
+<extrareasons reason="reset" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<os><portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="41759"/>
+</os>
+<distance value="1"/>
+<times srtt="32255" rttvar="28866" to="147719"/>
+</host>
+<host starttime="1744279655" endtime="1744279693"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.25" addrtype="ipv4"/>
+<address addr="82:A5:72:11:A1:20" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="98">
+<extrareasons reason="reset" count="98" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="631"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ipp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="5000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="upnp" method="table" conf="3"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="631"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="38290"/>
+<osmatch name="Apple macOS 12 (Monterey) (Darwin 21.6.0)" accuracy="100" line="8058">
+<osclass type="general purpose" vendor="Apple" osfamily="macOS" osgen="12.X" accuracy="100"><cpe>cpe:/o:apple:mac_os_x:12</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="13" lastboot="Thu Apr 10 12:08:04 2025"/>
+<distance value="1"/>
+<tcpsequence index="263" difficulty="Good luck!" values="F5E1C09D,50E9176E,A9F9A296,AADA24BD,3B4FFE13"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0"/>
+<tcptssequence class="other" values="4216DD2D,ED43F864,43CC595A,432ADE0D,B5932D92"/>
+<times srtt="8934" rttvar="2489" to="100000"/>
+</host>
+<host starttime="1744279655" endtime="1744279697"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.49" addrtype="ipv4"/>
+<address addr="AE:D7:B5:C7:D1:A0" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="100">
+<extrareasons reason="reset" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<os><portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="34873"/>
+</os>
+<distance value="1"/>
+<times srtt="43379" rttvar="28313" to="156631"/>
+</host>
+<host starttime="1744279655" endtime="1744279693"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.51" addrtype="ipv4"/>
+<address addr="22:6F:B6:19:EC:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="98">
+<extrareasons reason="reset" count="98" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49153,49155-49157"/>
+</extraports>
+<port protocol="tcp" portid="49152"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+<port protocol="tcp" portid="49154"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="49152"/>
+<portused state="closed" proto="tcp" portid="7"/>
+<portused state="closed" proto="udp" portid="33250"/>
+<osmatch name="Apple macOS 12 (Monterey) (Darwin 21.6.0)" accuracy="100" line="8058">
+<osclass type="general purpose" vendor="Apple" osfamily="macOS" osgen="12.X" accuracy="100"><cpe>cpe:/o:apple:mac_os_x:12</cpe></osclass>
+</osmatch>
+</os>
+<uptime seconds="13" lastboot="Thu Apr 10 12:08:04 2025"/>
+<distance value="1"/>
+<tcpsequence index="260" difficulty="Good luck!" values="BC15F168,7C261C24,8F304BE7,2F0632D6,A0664856,87AAC919"/>
+<ipidsequence class="All zeros" values="0,0,0,0,0,0"/>
+<tcptssequence class="other" values="6F58674D,73697130,BC1C96B4,E14DC249,B8977FFF,F91BC5E7"/>
+<times srtt="9989" rttvar="4597" to="100000"/>
+</host>
+<host starttime="1744279655" endtime="1744279693"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.16.80.60" addrtype="ipv4"/>
+<address addr="DA:90:B3:97:60:30" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<os><osmatch name="Dell PowerConnect 2708 switch" accuracy="100" line="24014">
+<osclass type="switch" vendor="Dell" osfamily="embedded" accuracy="100"><cpe>cpe:/h:dell:powerconnect_2708</cpe></osclass>
+</osmatch>
+<osmatch name="Grandstream GXP2000 VoIP phone" accuracy="100" line="34631">
+<osclass type="VoIP phone" vendor="Grandstream" osfamily="embedded" accuracy="100"><cpe>cpe:/h:grandstream:gxp2000</cpe></osclass>
+</osmatch>
+<osmatch name="Grandstream GXP2020 VoIP phone" accuracy="100" line="34649">
+<osclass type="VoIP phone" vendor="Grandstream" osfamily="embedded" accuracy="100"><cpe>cpe:/h:grandstream:gxp2020</cpe></osclass>
+</osmatch>
+</os>
+<distance value="1"/>
+<times srtt="7000" rttvar="7000" to="100000"/>
+</host>
+<runstats><finished time="1744279697" timestr="Thu Apr 10 12:08:17 2025" summary="Nmap done at Thu Apr 10 12:08:17 2025; 64 IP addresses (9 hosts up) scanned in 53.99 seconds" elapsed="53.99" exit="success"/><hosts up="9" down="55" total="64"/>
+</runstats>
+</nmaprun>

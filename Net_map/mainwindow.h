@@ -8,6 +8,7 @@
 #include <QString>
 #include <QStringList>
 #include <QCoreApplication>
+#include <QGraphicsScene>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -32,6 +33,9 @@ private:
     QTime startTime;
     int currentScanPhase = 1;
     int lastProgressPercent = -1;
+    QGraphicsScene* scene;
+    QGraphicsPixmapItem* pixmapItem;
+    double scaleFactor = 1.0;
 
 
 private slots:
@@ -41,6 +45,7 @@ private slots:
     void loadXmlToTable(const QString& filePath);
     void updateScanOutput();
     void onScanFinished(int exitCode, QProcess::ExitStatus status);
+    void wheelEvent(QWheelEvent* event);
 };
 
 #endif // MAINWINDOW_H
