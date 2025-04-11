@@ -39,6 +39,7 @@ private slots:
     void nmapScan();
     void ouvrirPage(int index);
     void saveCarto();
+    void loadCarto();
     void loadXmlToTable(const QString& filePath);
     void securityTable(const QString& filePath);
     void updateSecurityTable();
