@@ -12,8 +12,9 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -28,6 +29,7 @@
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "customgraphicsview.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -51,151 +53,113 @@ public:
     QLabel *labelStep;
     QLineEdit *lineEdit;
     QPushButton *pushButtonImage;
-    QGraphicsView *graphicsView;
+    CustomGraphicsView *graphicsView;
     QWidget *page2;
+    QVBoxLayout *verticalLayout_6;
     QScrollArea *scrollArea_2;
     QWidget *scrollAreaWidgetContents;
+    QVBoxLayout *verticalLayout_7;
     QWidget *widget;
+    QVBoxLayout *verticalLayout_8;
     QTableWidget *tableWidget;
+    QWidget *page3;
+    QVBoxLayout *verticalLayout_9;
+    QScrollArea *scrollArea_3;
+    QWidget *scrollAreaWidgetContents_2;
+    QVBoxLayout *verticalLayout_10;
+    QWidget *widget_2;
+    QVBoxLayout *verticalLayout_11;
+    QWidget *widget_3;
+    QHBoxLayout *horizontalLayout;
+    QCheckBox *checkBoxClosed;
+    QCheckBox *checkBoxFiltered;
+    QCheckBox *checkBoxOpen;
+    QTableWidget *tableWidget_2;
     QMenuBar *menubar;
     QMenu *menuNetMap;
-    QMenu *menuEquipement;
     QMenu *menuDevices;
-    QMenu *menuCyber;
+    QMenu *menuSecurity;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1452, 573);
+        MainWindow->resize(690, 600);
+        actionNouvellePage = new QAction(MainWindow);
+        actionNouvellePage->setObjectName("actionNouvellePage");
+        centralwidget = new QWidget(MainWindow);
+        centralwidget->setObjectName("centralwidget");
         QSizePolicy sizePolicy(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
-        MainWindow->setSizePolicy(sizePolicy);
-        actionNouvellePage = new QAction(MainWindow);
-        actionNouvellePage->setObjectName("actionNouvellePage");
-        actionNouvellePage->setMenuRole(QAction::MenuRole::NoRole);
-        centralwidget = new QWidget(MainWindow);
-        centralwidget->setObjectName("centralwidget");
         sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
         centralwidget->setSizePolicy(sizePolicy);
-        centralwidget->setMinimumSize(QSize(1007, 511));
-        centralwidget->setMaximumSize(QSize(16777215, 16777215));
         verticalLayout_3 = new QVBoxLayout(centralwidget);
         verticalLayout_3->setObjectName("verticalLayout_3");
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        sizePolicy.setHeightForWidth(stackedWidget->sizePolicy().hasHeightForWidth());
-        stackedWidget->setSizePolicy(sizePolicy);
         page1 = new QWidget();
         page1->setObjectName("page1");
-        sizePolicy.setHeightForWidth(page1->sizePolicy().hasHeightForWidth());
-        page1->setSizePolicy(sizePolicy);
         verticalLayout_5 = new QVBoxLayout(page1);
         verticalLayout_5->setObjectName("verticalLayout_5");
         scrollArea = new QScrollArea(page1);
         scrollArea->setObjectName("scrollArea");
-        sizePolicy.setHeightForWidth(scrollArea->sizePolicy().hasHeightForWidth());
-        scrollArea->setSizePolicy(sizePolicy);
-        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOn);
-        scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOn);
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_3 = new QWidget();
         scrollAreaWidgetContents_3->setObjectName("scrollAreaWidgetContents_3");
-        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 1400, 478));
-        sizePolicy.setHeightForWidth(scrollAreaWidgetContents_3->sizePolicy().hasHeightForWidth());
-        scrollAreaWidgetContents_3->setSizePolicy(sizePolicy);
-        scrollAreaWidgetContents_3->setMinimumSize(QSize(0, 0));
-        scrollAreaWidgetContents_3->setAutoFillBackground(true);
+        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 652, 519));
         verticalLayout_4 = new QVBoxLayout(scrollAreaWidgetContents_3);
         verticalLayout_4->setObjectName("verticalLayout_4");
         widgetContainer = new QWidget(scrollAreaWidgetContents_3);
         widgetContainer->setObjectName("widgetContainer");
-        sizePolicy.setHeightForWidth(widgetContainer->sizePolicy().hasHeightForWidth());
-        widgetContainer->setSizePolicy(sizePolicy);
-        widgetContainer->setMinimumSize(QSize(0, 0));
-        widgetContainer->setLayoutDirection(Qt::LayoutDirection::LeftToRight);
         verticalLayout_2 = new QVBoxLayout(widgetContainer);
-        verticalLayout_2->setSpacing(4);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        verticalLayout_2->setSizeConstraint(QLayout::SizeConstraint::SetDefaultConstraint);
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         frame = new QFrame(widgetContainer);
         frame->setObjectName("frame");
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
-        frame->setSizePolicy(sizePolicy1);
-        frame->setMinimumSize(QSize(0, 30));
-        frame->setFrameShape(QFrame::Shape::StyledPanel);
-        frame->setFrameShadow(QFrame::Shadow::Raised);
         verticalLayout = new QVBoxLayout(frame);
         verticalLayout->setObjectName("verticalLayout");
         progressBar = new QProgressBar(frame);
         progressBar->setObjectName("progressBar");
-        progressBar->setEnabled(true);
-        QSizePolicy sizePolicy2(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(progressBar->sizePolicy().hasHeightForWidth());
-        progressBar->setSizePolicy(sizePolicy2);
         progressBar->setMinimumSize(QSize(500, 32));
-        progressBar->setStyleSheet(QString::fromUtf8("QProgressBar {\n"
-"    min-height: 30px;\n"
-"    max-height: 30px;\n"
-"    border: 1px solid #555;\n"
-"    border-radius: 5px;\n"
-"    background-color: #2E2E2E;\n"
-"    text-align: right;\n"
-"    padding: 0px;\n"
-"    margin: 0px;\n"
-"}\n"
-"\n"
-"QProgressBar::chunk {\n"
-"    background-color: #D08BE7;\n"
-"    margin: 1px;\n"
-"    border-radius: 4px;\n"
-"}\n"
-""));
         progressBar->setValue(26);
 
         verticalLayout->addWidget(progressBar);
 
         labelStep = new QLabel(frame);
         labelStep->setObjectName("labelStep");
-        QSizePolicy sizePolicy3(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(labelStep->sizePolicy().hasHeightForWidth());
-        labelStep->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(labelStep->sizePolicy().hasHeightForWidth());
+        labelStep->setSizePolicy(sizePolicy1);
 
         verticalLayout->addWidget(labelStep);
 
         lineEdit = new QLineEdit(frame);
         lineEdit->setObjectName("lineEdit");
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(lineEdit->sizePolicy().hasHeightForWidth());
         lineEdit->setSizePolicy(sizePolicy2);
-        lineEdit->setMinimumSize(QSize(170, 0));
+        lineEdit->setMinimumSize(QSize(0, 0));
+        lineEdit->setMaximumSize(QSize(200, 16777215));
 
         verticalLayout->addWidget(lineEdit);
 
         pushButtonImage = new QPushButton(frame);
         pushButtonImage->setObjectName("pushButtonImage");
-        sizePolicy2.setHeightForWidth(pushButtonImage->sizePolicy().hasHeightForWidth());
-        pushButtonImage->setSizePolicy(sizePolicy2);
-        pushButtonImage->setMinimumSize(QSize(100, 30));
+        sizePolicy1.setHeightForWidth(pushButtonImage->sizePolicy().hasHeightForWidth());
+        pushButtonImage->setSizePolicy(sizePolicy1);
 
         verticalLayout->addWidget(pushButtonImage);
 
 
         verticalLayout_2->addWidget(frame);
 
-        graphicsView = new QGraphicsView(widgetContainer);
+        graphicsView = new CustomGraphicsView(widgetContainer);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setMinimumSize(QSize(0, 0));
 
         verticalLayout_2->addWidget(graphicsView);
 
@@ -209,46 +173,112 @@ public:
         stackedWidget->addWidget(page1);
         page2 = new QWidget();
         page2->setObjectName("page2");
+        verticalLayout_6 = new QVBoxLayout(page2);
+        verticalLayout_6->setObjectName("verticalLayout_6");
         scrollArea_2 = new QScrollArea(page2);
         scrollArea_2->setObjectName("scrollArea_2");
-        scrollArea_2->setGeometry(QRect(0, 0, 1001, 511));
-        scrollArea_2->setMaximumSize(QSize(16777215, 16777215));
         scrollArea_2->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 999, 509));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 528, 537));
+        sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
+        scrollAreaWidgetContents->setSizePolicy(sizePolicy);
+        verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
+        verticalLayout_7->setObjectName("verticalLayout_7");
         widget = new QWidget(scrollAreaWidgetContents);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(0, 0, 981, 751));
+        verticalLayout_8 = new QVBoxLayout(widget);
+        verticalLayout_8->setObjectName("verticalLayout_8");
         tableWidget = new QTableWidget(widget);
         tableWidget->setObjectName("tableWidget");
-        tableWidget->setGeometry(QRect(0, 0, 981, 441));
+
+        verticalLayout_8->addWidget(tableWidget);
+
+
+        verticalLayout_7->addWidget(widget);
+
         scrollArea_2->setWidget(scrollAreaWidgetContents);
+
+        verticalLayout_6->addWidget(scrollArea_2);
+
         stackedWidget->addWidget(page2);
+        page3 = new QWidget();
+        page3->setObjectName("page3");
+        verticalLayout_9 = new QVBoxLayout(page3);
+        verticalLayout_9->setObjectName("verticalLayout_9");
+        scrollArea_3 = new QScrollArea(page3);
+        scrollArea_3->setObjectName("scrollArea_3");
+        scrollArea_3->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 652, 519));
+        verticalLayout_10 = new QVBoxLayout(scrollAreaWidgetContents_2);
+        verticalLayout_10->setObjectName("verticalLayout_10");
+        widget_2 = new QWidget(scrollAreaWidgetContents_2);
+        widget_2->setObjectName("widget_2");
+        verticalLayout_11 = new QVBoxLayout(widget_2);
+        verticalLayout_11->setObjectName("verticalLayout_11");
+        widget_3 = new QWidget(widget_2);
+        widget_3->setObjectName("widget_3");
+        QSizePolicy sizePolicy3(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
+        widget_3->setSizePolicy(sizePolicy3);
+        horizontalLayout = new QHBoxLayout(widget_3);
+        horizontalLayout->setObjectName("horizontalLayout");
+        checkBoxClosed = new QCheckBox(widget_3);
+        checkBoxClosed->setObjectName("checkBoxClosed");
+
+        horizontalLayout->addWidget(checkBoxClosed);
+
+        checkBoxFiltered = new QCheckBox(widget_3);
+        checkBoxFiltered->setObjectName("checkBoxFiltered");
+
+        horizontalLayout->addWidget(checkBoxFiltered);
+
+        checkBoxOpen = new QCheckBox(widget_3);
+        checkBoxOpen->setObjectName("checkBoxOpen");
+
+        horizontalLayout->addWidget(checkBoxOpen);
+
+
+        verticalLayout_11->addWidget(widget_3);
+
+        tableWidget_2 = new QTableWidget(widget_2);
+        tableWidget_2->setObjectName("tableWidget_2");
+
+        verticalLayout_11->addWidget(tableWidget_2);
+
+
+        verticalLayout_10->addWidget(widget_2);
+
+        scrollArea_3->setWidget(scrollAreaWidgetContents_2);
+
+        verticalLayout_9->addWidget(scrollArea_3);
+
+        stackedWidget->addWidget(page3);
 
         verticalLayout_3->addWidget(stackedWidget);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1452, 21));
+        menubar->setGeometry(QRect(0, 0, 690, 21));
         menuNetMap = new QMenu(menubar);
         menuNetMap->setObjectName("menuNetMap");
-        menuEquipement = new QMenu(menubar);
-        menuEquipement->setObjectName("menuEquipement");
         menuDevices = new QMenu(menubar);
         menuDevices->setObjectName("menuDevices");
-        menuCyber = new QMenu(menubar);
-        menuCyber->setObjectName("menuCyber");
+        menuSecurity = new QMenu(menubar);
+        menuSecurity->setObjectName("menuSecurity");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
 
         menubar->addAction(menuNetMap->menuAction());
-        menubar->addAction(menuEquipement->menuAction());
         menubar->addAction(menuDevices->menuAction());
-        menubar->addAction(menuCyber->menuAction());
+        menubar->addAction(menuSecurity->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -259,13 +289,15 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionNouvellePage->setText(QCoreApplication::translate("MainWindow", "NouvellePage", nullptr));
-        labelStep->setText(QCoreApplication::translate("MainWindow", "Etape 1/6", nullptr));
+        labelStep->setText(QCoreApplication::translate("MainWindow", "\303\211tape 1/6", nullptr));
         lineEdit->setText(QCoreApplication::translate("MainWindow", "Mettre IP, ex : 192.168.1.0/24", nullptr));
         pushButtonImage->setText(QCoreApplication::translate("MainWindow", "Scanner le r\303\251seau", nullptr));
+        checkBoxClosed->setText(QCoreApplication::translate("MainWindow", "Closed Port", nullptr));
+        checkBoxFiltered->setText(QCoreApplication::translate("MainWindow", "Filtered Port", nullptr));
+        checkBoxOpen->setText(QCoreApplication::translate("MainWindow", "Open Port", nullptr));
         menuNetMap->setTitle(QCoreApplication::translate("MainWindow", "NetMap", nullptr));
-        menuEquipement->setTitle(QCoreApplication::translate("MainWindow", "Devices", nullptr));
         menuDevices->setTitle(QCoreApplication::translate("MainWindow", "Devices", nullptr));
-        menuCyber->setTitle(QCoreApplication::translate("MainWindow", "Cyber", nullptr));
+        menuSecurity->setTitle(QCoreApplication::translate("MainWindow", "Security", nullptr));
     } // retranslateUi
 
 };

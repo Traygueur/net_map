@@ -24,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->scrollArea->setStyleSheet("background-color: #2E2E2E;");
-    setFixedSize(1007, 511);
     connect(ui->pushButtonImage, &QPushButton::clicked, this, &MainWindow::nmapScan);
     //QAction *actionNouvellePage = new QAction("Changer de page", this);
     //ui->menuNetMap->addAction(actionNouvellePage);
@@ -60,9 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
-    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
-    ui->graphicsView->setDragMode(QGraphicsView::ScrollHandDrag);
-    ui->graphicsView->setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
+   
 }
 
 MainWindow::~MainWindow()
@@ -148,7 +145,6 @@ void MainWindow::loadCarto() {
     QString linkQString = QFileDialog::getOpenFileName(this, "Choisir un fichier", "", "Fichiers XML (*.xml);;Tous les fichiers (*)");
 
     if (linkQString.isEmpty()) {
-        ui->imageLabel->setText("Erreur : Impossible de charger le fichier Xml !");
         return;
     }
 
@@ -161,19 +157,21 @@ void MainWindow::loadCarto() {
 
 
     QString exePath = QCoreApplication::applicationDirPath();
-    QString bmpPath = exePath + "/network.bmp";
+    QString bmpPath = exePath + "/network.png";
+    QImageReader::setAllocationLimit(2048);
 
     QPixmap pixmap(bmpPath);
 
     if (pixmap.isNull()) {
-        ui->imageLabel->setText("Erreur : Impossible de charger l'image !");
         return;
     }
 
     // Affiche l'image dans le QLabel
-    ui->imageLabel->setPixmap(pixmap);
-    ui->imageLabel->adjustSize();  // ajuste la taille du QLabel à celle de l’image
-    ui->imageLabel->setFixedSize(pixmap.size());
+
+    // Affiche l'image dans le QLabel
+    pixmapItem = scene->addPixmap(pixmap);
+    scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
+    ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
 
     // Charge les données XML dans le tableau
     QString xmlPath = exePath + "/scan_network.xml";
@@ -467,18 +465,7 @@ void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
     }
 }
 
-void MainWindow::wheelEvent(QWheelEvent* event) {
-    if (ui->graphicsView->underMouse() && (event->modifiers() & Qt::ControlModifier)) {
-        const double zoomFactor = 1.15;
-        if (event->angleDelta().y() > 0)
-            ui->graphicsView->scale(zoomFactor, zoomFactor);
-        else
-            ui->graphicsView->scale(1.0 / zoomFactor, 1.0 / zoomFactor);
-        event->accept();
-    }
-    else {
-        QMainWindow::wheelEvent(event);
-    }
-}
+
+
 
 

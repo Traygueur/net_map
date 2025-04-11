@@ -49,7 +49,6 @@ private slots:
     void updateSecurityTable();
     void updateScanOutput();
     void onScanFinished(int exitCode, QProcess::ExitStatus status);
-    void wheelEvent(QWheelEvent* event);
 };
 
 #endif // MAINWINDOW_H

@@ -117,7 +117,6 @@ int createMap(std::string path) {
         xmlPath = QString::fromStdString(path);
     }
 
-    QString xmlPath = exePath + "/scan_network.xml";
     QFile file(xmlPath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return 0;
@@ -236,7 +235,7 @@ void generateGraphe(const std::unordered_map<std::string, Device>& network_map) 
 
     QProcess process;
     QString program = exePath + "/graphviz/dot.exe";  // Chemin absolu
-    QStringList arguments = {"-Ksfdp", "-Tpng", "-Gdpi=100", "network.dot", "-o", "network.png"};
+    QStringList arguments = {"-Ksfdp", "-Tpng", "-Gdpi=72", "network.dot", "-o", "network.png"};
 
 
     process.setWorkingDirectory(exePath);

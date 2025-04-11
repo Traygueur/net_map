@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <QtMoc Include="customgraphicsview.h" />
     <ClInclude Include="framework.h" />
     <QtMoc Include="mainwindow.h" />
     <ClInclude Include="map.h" />
