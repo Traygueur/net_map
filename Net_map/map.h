@@ -21,6 +21,9 @@ struct Device {
     std::vector<std::string> links;
 };
 
+extern std::unordered_map<std::string, std::vector<std::string>> delay;
+extern std::vector<std::pair<std::string, float>> sortedIPs;
+extern std::map<std::string, std::string> association;
 
 
 int createMap();

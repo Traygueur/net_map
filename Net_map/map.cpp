@@ -15,9 +15,71 @@
 #include <QRegularExpressionMatch> // Ajout de l'inclusion nécessaire
 #include <QRegularExpressionMatchIterator> // Ajout de l'inclusion nécessaire
 #include <QDebug> // Ajout de l'inclusion nécessaire
+#include <unordered_map>
+#include <algorithm>
+#include <limits>
+
 
 
 QString ipGateway;
+std::unordered_map<std::string, std::vector<std::string>> delay;
+std::map<std::string, std::string> association;
+
+int switchSorted() {
+    std::vector<std::pair<std::string, float>> sortedIPs;
+    association.clear();
+    for (std::unordered_map<std::string, std::vector<std::string>>::const_iterator it = delay.begin(); it != delay.end(); ++it) {
+        if (!it->second.empty()) {
+            // Convertir la réponse en float
+            float time = std::stof(it->second[1]);
+            sortedIPs.push_back(std::make_pair(it->first, time));
+        }
+    }
+
+    // Trier selon le temps de réponse croissant
+    std::sort(sortedIPs.begin(), sortedIPs.end(),
+        [](const std::pair<std::string, float>& a, const std::pair<std::string, float>& b) {
+            return a.second < b.second;
+        });
+    
+    // Déterminer l'IP du premier switch rencontré dans la liste triée
+    std::string firstSwitch = "";
+    for (std::vector<std::pair<std::string, float>>::const_iterator it = sortedIPs.begin();
+        it != sortedIPs.end(); ++it) {
+        // Vérifier si cette IP est un switch dans ipData
+        if (!delay[it->first].empty() && delay[it->first][0] == "switch") {
+            firstSwitch = it->first;
+            break;
+        }
+    }
+    if (firstSwitch == "") {
+        std::cout << "Aucun switch trouvé dans la liste triée." << std::endl;
+        return 1;
+    }
+    // Variable pour garder le switch courant (celui le plus proche juste avant dans la liste)
+    std::string currentSwitch = "";
+    // Parcourir la liste et associer chaque IP non-switch avec le switch le plus proche
+    for (std::vector<std::pair<std::string, float>>::const_iterator it = sortedIPs.begin();
+        it != sortedIPs.end(); ++it) {
+        const std::string& ip = it->first;
+        // Si c'est un switch, on ne fait pas d'association et on met à jour currentSwitch
+        if (!delay[ip].empty() && delay[ip][0] == "switch") {
+            currentSwitch = ip;
+            association[ip] = ipGateway.toStdString();  // Associer le switch à lui-même
+        }
+        else {  // Pour les autres types
+            if (currentSwitch == "") {
+                // Aucun switch précédent, associer à firstSwitch
+                association[ip] = firstSwitch;
+            }
+            else {
+                association[ip] = currentSwitch;
+            }
+        }
+    }
+
+    return 0;
+}
 
 
 void parseArpTableQt(std::unordered_map<std::string, Device>& network_map) {
@@ -47,6 +109,7 @@ int createMap() {
     QString exePath = QCoreApplication::applicationDirPath();
     std::unordered_map<std::string, Device> network_map;
 
+
     QString xmlPath = exePath + "/scan_network.xml";
     QFile file(xmlPath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -66,7 +129,13 @@ int createMap() {
     for (int i = 0; i < hosts.count(); ++i) {
         QDomElement host = hosts.at(i).toElement();
 
-        QString ip, mac, osType, accuracy, vendor;
+        QString ip, mac, osType, accuracy, vendor, type, time;
+
+		QDomNodeList times = host.elementsByTagName("times");
+		for (int j = 0; j < times.count(); ++j) {
+			QDomElement timeElement = times.at(j).toElement();
+			time = timeElement.attribute("srtt");
+		}
 
         // Adresse IP + MAC
         QDomNodeList addresses = host.elementsByTagName("address");
@@ -88,19 +157,43 @@ int createMap() {
                 QDomElement osMatch = osMatches.at(0).toElement();
                 osType = osMatch.attribute("name");
                 accuracy = osMatch.attribute("accuracy");
+				QDomElement osClass = osMatch.firstChildElement("osclass");
+				type = osClass.attribute("type");
             }
         }
 
         qDebug() << ipGateway;
-        if (ip == ipGateway) {
-            network_map[ip.toStdString()] = { osType.toStdString(), mac.toStdString(), {} };
+
+        delay[ip.toStdString()] = { type.toStdString(), time.toStdString(), osType.toStdString(), mac.toStdString()};
+        for (const auto& entry : delay) {
+            qDebug() << "IP:" << QString::fromStdString(entry.first);
+            for (const auto& item : entry.second) {
+                qDebug() << "   → " << QString::fromStdString(item);
+            }
         }
-        else
-        {
-            network_map[ip.toStdString()] = { osType.toStdString(), mac.toStdString(), {ipGateway.toStdString()} };
+    }
+
+
+	switchSorted();
+
+    for (const auto& entry : delay) {
+        const std::string& ip = entry.first;
+        const std::string& type = entry.second[0];
+		const std::string& ostype = entry.second[2];
+		const std::string& mac = entry.second[3];
+
+        if (ip == ipGateway.toStdString()) {
+            network_map[ip] = { ostype, mac, {} };
+        }
+        else if (association[ip].empty()) {
+            network_map[ip] = { ostype, mac, {ipGateway.toStdString()} };
+        }
+        else {
+            network_map[ip] = { ostype, mac, { association[ip]}};
         }
     }
 	
+	// Ajout des liens entre les appareils
     // Génération du graphe
     generateGraphe(network_map);
 
@@ -112,16 +205,16 @@ void generateGraphe(const std::unordered_map<std::string, Device>& network_map) 
     QString dotPath = exePath + "/network.dot";
     std::ofstream file(dotPath.toStdString());
     file << "graph Network {\n";
-    file << R"( layout=neato;
+    file << R"( layout=sfdp;
                 bgcolor="#2E2E2E";
                 overlap=scale;
                 splines=true;
-                sep="+1";
+                sep="+0.5";
                 nodesep=0.3;
                 ranksep=0.4;
 
                 node [style=filled, shape=ellipse, fillcolor="white", fontcolor="black", color="black", fontsize=14];
-                edge [color="white", penwidth=1.2, len=0.1];)";
+                edge [color="white", penwidth=1.2, len=0.4];)";
     for (const auto& entry : network_map) {
         std::string ip = entry.first;
         Device device = entry.second;
@@ -136,7 +229,7 @@ void generateGraphe(const std::unordered_map<std::string, Device>& network_map) 
 
     QProcess process;
     QString program = exePath + "/graphviz/dot.exe";  // Chemin absolu
-    QStringList arguments = {"-Kneato", "-Tpng", "-Gdpi=100", "network.dot", "-o", "network.png"};
+    QStringList arguments = {"-Ksfdp", "-Tpng", "-Gdpi=100", "network.dot", "-o", "network.png"};
 
 
     process.setWorkingDirectory(exePath);

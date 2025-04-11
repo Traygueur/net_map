@@ -13,6 +13,8 @@
 #include <QProgressBar>
 #include <QLineEdit>
 #include <QWheelEvent>
+#include <QGraphicsPixmapItem>
+#include <QImageReader>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -21,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->scrollArea->setStyleSheet("background-color: #2E2E2E;");
-    setFixedSize(1007, 511);
     connect(ui->pushButtonImage, &QPushButton::clicked, this, &MainWindow::loadImage);
     QAction *actionSaveCarto = new QAction("Enregistrer la cartographie", this);
     QAction *actionNouvellePage = new QAction("Changer de page", this);
@@ -237,13 +238,14 @@ void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
         QString bmpPath = exePath + "/network.png";
         qDebug() << "🧩 Chemin absolu image : " << bmpPath;
         qDebug() << "🧩 Existe ? " << QFile::exists(bmpPath);
-
+        QImageReader::setAllocationLimit(2048);
         QPixmap pixmap(bmpPath);
         qDebug() << "🧩 Taille du pixmap : " << pixmap.size();
 
         // Affiche l'image dans le QLabel
         pixmapItem = scene->addPixmap(pixmap);
-        scene->setSceneRect(pixmap.rect());
+        scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
+        ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
 
         // (facultatif, pour test visuel)
        
