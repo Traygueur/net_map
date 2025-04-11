@@ -143,7 +143,7 @@ void MainWindow::loadCarto() {
         return;
     }
 
-    qDebug() << "Carto charger";
+    qDebug() << "Carto charger" << linkQString;
 
     std::string link = linkQString.toStdString();
     createMap(link);
