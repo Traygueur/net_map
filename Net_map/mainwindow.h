@@ -39,10 +39,14 @@ private:
 
 
 private slots:
-    void loadImage();
-    void ouvrirPage();
+    void manageActionMenu(QMenu* menu, QString texte, int index);
+    void nmapScan();
+    void ouvrirPage(int index);
     void saveCarto();
+    void loadCarto();
     void loadXmlToTable(const QString& filePath);
+    void securityTable(const QString& filePath);
+    void updateSecurityTable();
     void updateScanOutput();
     void onScanFinished(int exitCode, QProcess::ExitStatus status);
     void wheelEvent(QWheelEvent* event);

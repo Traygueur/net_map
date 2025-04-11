@@ -104,11 +104,18 @@ void parseArpTableQt(std::unordered_map<std::string, Device>& network_map) {
 };
 
 
-int createMap() {
-	detectGateway();
-    QString exePath = QCoreApplication::applicationDirPath();
+int createMap(std::string path) {
+    detectGateway();
+    QString xmlPath;
     std::unordered_map<std::string, Device> network_map;
+    if (path == "Null") {
+        QString exePath = QCoreApplication::applicationDirPath();
 
+        xmlPath = exePath + "/scan_network.xml";
+    }
+    else {
+        xmlPath = QString::fromStdString(path);
+    }
 
     QString xmlPath = exePath + "/scan_network.xml";
     QFile file(xmlPath);

@@ -26,7 +26,7 @@ extern std::vector<std::pair<std::string, float>> sortedIPs;
 extern std::map<std::string, std::string> association;
 
 
-int createMap();
+int createMap(std::string path);
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map);
 void parseArpTableQt(std::unordered_map<std::string, Device>& network_map);
 void detectGateway();
