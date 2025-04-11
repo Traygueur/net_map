@@ -168,6 +168,9 @@ void MainWindow::loadCarto() {
 
     // Charge les données XML dans le tableau
     QString xmlPath = exePath + "/scan_network.xml";
+    qDebug() << "exe path : " << exePath;
+    qDebug() << "xml path : " << xmlPath;
+
     if (QFile::exists(xmlPath)) {
         loadXmlToTable(xmlPath);
         securityTable(xmlPath);
