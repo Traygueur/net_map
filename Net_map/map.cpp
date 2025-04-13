@@ -203,6 +203,8 @@ int createMap(std::string path) {
     // Génération du graphe
     generateGraphe(network_map);
 
+    qDebug() << "graph Créer";
+
     return 0;
 };
 

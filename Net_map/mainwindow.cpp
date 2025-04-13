@@ -163,10 +163,10 @@ void MainWindow::loadCarto() {
     QPixmap pixmap(bmpPath);
 
     if (pixmap.isNull()) {
+        qDebug() << "pix null";
+
         return;
     }
-
-    // Affiche l'image dans le QLabel
 
     // Affiche l'image dans le QLabel
     pixmapItem = scene->addPixmap(pixmap);
@@ -174,10 +174,11 @@ void MainWindow::loadCarto() {
     ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
 
     // Charge les données XML dans le tableau
-    QString xmlPath = exePath + "/scan_network.xml";
-    if (QFile::exists(xmlPath)) {
-        loadXmlToTable(xmlPath);
-        securityTable(xmlPath);
+    qDebug() << "table remp";
+    //QString xmlPath = exePath + "/scan_network.xml";
+    if (QFile::exists(linkQString)) {
+        loadXmlToTable(linkQString);
+        securityTable(linkQString);
     }
 }
 
@@ -323,66 +324,72 @@ void MainWindow::securityTable(const QString& filePath) {
             }
         }
         // <extraports state="filtered" count="98"><extrareasons reason = "no-response" count = "98" proto = "tcp" ports = "7,9,...,49152-49157"/></extraports>
-        QDomElement extraPorts = host.firstChildElement("extraports");
-        if (!extraPorts.isNull()) {
-            QString extraPortsState;
-            extraPortsState = extraPorts.attribute("state");
+        QDomElement portsElement = host.firstChildElement("ports");
+        if (!portsElement.isNull()) {
+            QDomElement extraPorts = portsElement.firstChildElement("extraports");
+            if (!extraPorts.isNull()) {
+                QString extraPortsState;
+                extraPortsState = extraPorts.attribute("state");
 
-            QDomElement listExtraPorts = extraPorts.firstChildElement("extrareasons");
-            if (!listExtraPorts.isNull()) {
-                Ports = listExtraPorts.attribute("ports");
+                QDomElement listExtraPorts = extraPorts.firstChildElement("extrareasons");
+                if (!listExtraPorts.isNull()) {
+                    Ports = listExtraPorts.attribute("ports");
 
-                QStringList listPorts = Ports.split(",", Qt::SkipEmptyParts);
-                for (int j = 0; j < listPorts.count(); ++j) {
-                    QString port = listPorts.at(j);
+                    QStringList listPorts = Ports.split(",", Qt::SkipEmptyParts);
+                    qDebug() << "extra" << listPorts;
+                    for (int j = 0; j < listPorts.count(); ++j) {
+                        QString port = listPorts.at(j);
 
-                    if (port.contains("-")) {
-                        QStringList range = port.split("-");
-                        int start = range.at(0).toInt();
-                        int end = range.at(1).toInt();
+                        if (port.contains("-")) {
+                            QStringList range = port.split("-");
+                            int start = range.at(0).toInt();
+                            int end = range.at(1).toInt();
 
-                        for (int k = 0; k < (end - start + 1); ++k) {
-                            QString strPort = QString::number(k);
-                            Protocol = getProtocolForPort(k);
-                            Danger = getDangerLevelForPort(k);
+                            for (int k = start; k <= end; ++k) {
+                                QString strPort = QString::number(k);
+                                Protocol = getProtocolForPort(k);
+                                Danger = getDangerLevelForPort(k);
+                                QString dangerText = (Danger != -1) ? QString::number(Danger) : "Unknown";
 
+                                // Ajout au tableau HERE
+                                ui->tableWidget_2->insertRow(line);
+                                ui->tableWidget_2->setItem(line, 0, new QTableWidgetItem(ip));
+                                ui->tableWidget_2->setItem(line, 1, new QTableWidgetItem(strPort));
+                                ui->tableWidget_2->setItem(line, 2, new QTableWidgetItem(QString::fromStdString(Protocol)));
+                                ui->tableWidget_2->setItem(line, 3, new QTableWidgetItem(extraPortsState));
+                                ui->tableWidget_2->setItem(line, 4, new QTableWidgetItem(dangerText));
 
-                            // Ajout au tableau HERE
+                                line++;
+                            }
+                        }
+                        else {
+                            int numPort = port.toInt();
+                            Protocol = getProtocolForPort(numPort);
+                            Danger = getDangerLevelForPort(numPort);
+                            QString dangerText = (Danger != -1) ? QString::number(Danger) : "Unknown";
+
                             ui->tableWidget_2->insertRow(line);
                             ui->tableWidget_2->setItem(line, 0, new QTableWidgetItem(ip));
-                            ui->tableWidget_2->setItem(line, 1, new QTableWidgetItem(strPort));
-                            ui->tableWidget_2->setItem(line, 2, new QTableWidgetItem(Protocols));
+                            ui->tableWidget_2->setItem(line, 1, new QTableWidgetItem(port));
+                            ui->tableWidget_2->setItem(line, 2, new QTableWidgetItem(QString::fromStdString(Protocol)));
                             ui->tableWidget_2->setItem(line, 3, new QTableWidgetItem(extraPortsState));
-                            ui->tableWidget_2->setItem(line, 4, new QTableWidgetItem(Danger));
+                            ui->tableWidget_2->setItem(line, 4, new QTableWidgetItem(dangerText));
 
                             line++;
                         }
                     }
-                    else {
-                        int numPort = port.toInt();
-                        Protocol = getProtocolForPort(numPort);
-                        Danger = getDangerLevelForPort(numPort);
-                        QString dangerText = (Danger != -1) ? QString::number(Danger) : "Unknown";
-
-                        ui->tableWidget_2->insertRow(line);
-                        ui->tableWidget_2->setItem(line, 0, new QTableWidgetItem(ip));
-                        ui->tableWidget_2->setItem(line, 1, new QTableWidgetItem(port));
-                        ui->tableWidget_2->setItem(line, 2, new QTableWidgetItem(QString::fromStdString(Protocol)));
-                        ui->tableWidget_2->setItem(line, 3, new QTableWidgetItem(extraPortsState));
-                        ui->tableWidget_2->setItem(line, 4, new QTableWidgetItem(dangerText));
-
-                        line++;
-                    }
                 }
             }
-
         }
     }
 }
 
 void MainWindow::updateSecurityTable() {
     for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
-        QString state = ui->tableWidget_2->item(row, 3)->text(); // colonne 3 = état
+        QTableWidgetItem* item = ui->tableWidget_2->item(row, 3);
+        if (!item) continue; // Skip des lignes sans état défini
+
+        QString state = item->text();
 
         bool show = (state == "open" && ui->checkBoxOpen->isChecked()) ||
             (state == "filtered" && ui->checkBoxFiltered->isChecked()) ||
