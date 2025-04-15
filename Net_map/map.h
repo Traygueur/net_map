@@ -19,6 +19,7 @@ struct Device {
     std::string type;
     std::string mac_address;
     std::vector<std::string> links;
+    std::string id;
 };
 
 extern std::unordered_map<std::string, std::vector<std::string>> delay;
@@ -28,7 +29,7 @@ extern std::map<std::string, std::string> association;
 
 int createMap(std::string path);
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map);
-void parseArpTableQt(std::unordered_map<std::string, Device>& network_map);
 void detectGateway();
-
+void localInfoInXML();
+QString getLocalSubnet();
 #endif // MAP_H

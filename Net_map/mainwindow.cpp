@@ -16,6 +16,10 @@
 #include <QGraphicsPixmapItem>
 #include <QImageReader>
 #include "portsinfo.h"
+#include <QGraphicsSvgItem>
+#include <QSvgRenderer>
+
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -157,21 +161,24 @@ void MainWindow::loadCarto() {
 
 
     QString exePath = QCoreApplication::applicationDirPath();
-    QString bmpPath = exePath + "/network.png";
-    QImageReader::setAllocationLimit(2048);
+    QString svgPath = exePath + "/network.svg";
+    qDebug() << "🧩 Chemin absolu image : " << svgPath;
+    qDebug() << "🧩 Existe ? " << QFile::exists(svgPath);
 
-    QPixmap pixmap(bmpPath);
+    QSvgRenderer* renderer = new QSvgRenderer(svgPath, this);
 
-    if (pixmap.isNull()) {
+    if (!renderer->isValid()) {
+        qDebug() << "❌ Le fichier SVG est invalide ou vide.";
         return;
     }
 
-    // Affiche l'image dans le QLabel
+    QGraphicsSvgItem* svgItem = new QGraphicsSvgItem();
+    svgItem->setSharedRenderer(renderer);
 
-    // Affiche l'image dans le QLabel
-    pixmapItem = scene->addPixmap(pixmap);
-    scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
-    ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
+    scene->clear();
+    scene->addItem(svgItem);
+    scene->setSceneRect(svgItem->boundingRect().adjusted(-10, -10, 10, 10));
+    ui->graphicsView->fitInView(svgItem, Qt::KeepAspectRatio);
 
     // Charge les données XML dans le tableau
     QString xmlPath = exePath + "/scan_network.xml";
@@ -382,7 +389,10 @@ void MainWindow::securityTable(const QString& filePath) {
 
 void MainWindow::updateSecurityTable() {
     for (int row = 0; row < ui->tableWidget_2->rowCount(); ++row) {
-        QString state = ui->tableWidget_2->item(row, 3)->text(); // colonne 3 = état
+        QTableWidgetItem* item = ui->tableWidget_2->item(row, 3);
+        if (!item) continue; // Skip des lignes sans état défini
+
+        QString state = item->text();
 
         bool show = (state == "open" && ui->checkBoxOpen->isChecked()) ||
             (state == "filtered" && ui->checkBoxFiltered->isChecked()) ||
@@ -428,24 +438,42 @@ void MainWindow::updateScanOutput() {
 }
 
 void MainWindow::onScanFinished(int exitCode, QProcess::ExitStatus status) {
+    qDebug() << "rentré";
     if (exitCode == 0) {
+        qDebug() << "rentré2";
         QString exePath = QCoreApplication::applicationDirPath();
         currentScanPhase = 1;
         ui->labelStep->setText("Étape 1/6");
         ui->progressBar->setValue(0);
         createMap("Null");
 
-        QString bmpPath = exePath + "/network.png";
-        qDebug() << "🧩 Chemin absolu image : " << bmpPath;
-        qDebug() << "🧩 Existe ? " << QFile::exists(bmpPath);
-        QImageReader::setAllocationLimit(2048);
-        QPixmap pixmap(bmpPath);
-        qDebug() << "🧩 Taille du pixmap : " << pixmap.size();
+        QString svgPath = exePath + "/network.svg";
+        qDebug() << "🧩 Chemin absolu image : " << svgPath;
+        qDebug() << "🧩 Existe ? " << QFile::exists(svgPath);
+
+        QSvgRenderer* renderer = new QSvgRenderer(svgPath, this);
+
+        if (!renderer->isValid()) {
+            qDebug() << "❌ Le fichier SVG est invalide ou vide.";
+            return;
+        }
+
+        QGraphicsSvgItem* svgItem = new QGraphicsSvgItem();
+        svgItem->setSharedRenderer(renderer);
+
+        scene->clear();
+        scene->addItem(svgItem);
+        scene->setSceneRect(svgItem->boundingRect().adjusted(-10, -10, 10, 10));
+        ui->graphicsView->fitInView(svgItem, Qt::KeepAspectRatio);
+
+        qDebug() << "✅ SVG affiché avec succès.";
+        //QPixmap pixmap(bmpPath);
+        //qDebug() << "🧩 Taille du pixmap : " << pixmap.size();
 
         // Affiche l'image dans le QLabel
-        pixmapItem = scene->addPixmap(pixmap);
-        scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
-        ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
+        //pixmapItem = scene->addPixmap(pixmap);
+        //scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
+        //ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
 
         // (facultatif, pour test visuel)
        

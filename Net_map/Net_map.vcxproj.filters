@@ -62,6 +62,9 @@
     <QtMoc Include="mainwindow.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </QtMoc>
+    <QtMoc Include="customgraphicsview.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="mainwindow.ui">
