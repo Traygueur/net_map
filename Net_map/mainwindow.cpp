@@ -154,7 +154,7 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
 
         QString xmlPath, linkQString;
         if (!scanDone) {
-            QString linkQString = QFileDialog::getOpenFileName(this, "Choisir un fichier", "", "Fichiers XML (*.xml);;Tous les fichiers (*)");
+            linkQString = QFileDialog::getOpenFileName(this, "Choisir un fichier", "", "Fichiers XML (*.xml);;Tous les fichiers (*)");
 
             if (linkQString.isEmpty()) {
                 return;
@@ -162,34 +162,38 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
 
             std::string link = linkQString.toStdString();
             createMap(link);
+            qDebug() << "test";
         }
         else {
             createMap("Null");
         }
 
         QString exePath = QCoreApplication::applicationDirPath();
-        QString bmpPath = exePath + "/network.png";
+        QString pngPath = exePath + "/network.png";
         QImageReader::setAllocationLimit(2048);
-        QPixmap pixmap(bmpPath);
+        QPixmap pixmap(pngPath);
+        qDebug() << "test" << pngPath;
 
-        if (pixmap.isNull()) {
-            return;
+        if (!pixmap.isNull()) {
+            // Affiche l'image dans le QLabel
+            pixmapItem = scene->addPixmap(pixmap);
+            scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
+            ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
         }
 
-        // Affiche l'image dans le QLabel
-        pixmapItem = scene->addPixmap(pixmap);
-        scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
-        ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
+        
 
 
         if (!scanDone) {
-            QString xmlPath = linkQString;
+            xmlPath = linkQString;
         }
         else {
-            QString xmlPath = exePath + "/scan_network.xml";
+            xmlPath = exePath + "/scan_network.xml";
         }
 
+        qDebug() << "test" << xmlPath;
         if (QFile::exists(xmlPath)) {
+            qDebug() << "test" << xmlPath;
             loadXmlToTable(xmlPath);
             securityTable(xmlPath);
         }
