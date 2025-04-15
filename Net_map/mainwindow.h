@@ -43,12 +43,11 @@ private slots:
     void nmapScan();
     void ouvrirPage(int index);
     void saveCarto();
-    void loadCarto();
+    void loadCarto(int exitCode, QProcess::ExitStatus status, bool scanDone);
     void loadXmlToTable(const QString& filePath);
     void securityTable(const QString& filePath);
     void updateSecurityTable();
     void updateScanOutput();
-    void onScanFinished(int exitCode, QProcess::ExitStatus status);
 };
 
 #endif // MAINWINDOW_H

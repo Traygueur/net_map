@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.8.2
+** Created by: Qt User Interface Compiler version 6.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -180,7 +180,7 @@ public:
         scrollArea_2->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 528, 537));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 106, 106));
         sizePolicy.setHeightForWidth(scrollAreaWidgetContents->sizePolicy().hasHeightForWidth());
         scrollAreaWidgetContents->setSizePolicy(sizePolicy);
         verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
@@ -229,16 +229,19 @@ public:
         horizontalLayout->setObjectName("horizontalLayout");
         checkBoxClosed = new QCheckBox(widget_3);
         checkBoxClosed->setObjectName("checkBoxClosed");
+        checkBoxClosed->setChecked(true);
 
         horizontalLayout->addWidget(checkBoxClosed);
 
         checkBoxFiltered = new QCheckBox(widget_3);
         checkBoxFiltered->setObjectName("checkBoxFiltered");
+        checkBoxFiltered->setChecked(true);
 
         horizontalLayout->addWidget(checkBoxFiltered);
 
         checkBoxOpen = new QCheckBox(widget_3);
         checkBoxOpen->setObjectName("checkBoxOpen");
+        checkBoxOpen->setChecked(true);
 
         horizontalLayout->addWidget(checkBoxOpen);
 

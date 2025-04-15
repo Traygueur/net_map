@@ -137,8 +137,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>528</width>
-             <height>537</height>
+             <width>106</width>
+             <height>106</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -197,6 +197,9 @@
                     <property name="text">
                      <string>Closed Port</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -204,12 +207,18 @@
                     <property name="text">
                      <string>Filtered Port</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QCheckBox" name="checkBoxOpen">
                     <property name="text">
                      <string>Open Port</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
