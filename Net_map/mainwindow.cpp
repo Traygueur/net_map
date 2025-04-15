@@ -90,8 +90,6 @@ void MainWindow::nmapScan()
 	}
 
     QString exePath = QCoreApplication::applicationDirPath();
-    qDebug() << "nmapScan() est appelé !";  // Vérification
-	qDebug() << "exePath : " << exePath;  // Vérification
 
     ui->progressBar->setValue(0);
 
@@ -162,7 +160,6 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
 
             std::string link = linkQString.toStdString();
             createMap(link);
-            qDebug() << "test";
         }
         else {
             createMap("Null");
@@ -172,7 +169,6 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
         QString pngPath = exePath + "/network.png";
         QImageReader::setAllocationLimit(2048);
         QPixmap pixmap(pngPath);
-        qDebug() << "test" << pngPath;
 
         if (!pixmap.isNull()) {
             // Affiche l'image dans le QLabel
@@ -191,9 +187,7 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
             xmlPath = exePath + "/scan_network.xml";
         }
 
-        qDebug() << "test" << xmlPath;
         if (QFile::exists(xmlPath)) {
-            qDebug() << "test" << xmlPath;
             loadXmlToTable(xmlPath);
             securityTable(xmlPath);
         }
@@ -354,7 +348,6 @@ void MainWindow::securityTable(const QString& filePath) {
                     Ports = listExtraPorts.attribute("ports");
 
                     QStringList listPorts = Ports.split(",", Qt::SkipEmptyParts);
-                    qDebug() << "extra" << listPorts;
                     for (int j = 0; j < listPorts.count(); ++j) {
                         QString port = listPorts.at(j);
 
@@ -421,8 +414,6 @@ void MainWindow::updateScanOutput() {
 
     QString output = process->readAllStandardOutput();
     output += process->readAllStandardError();
-
-    qDebug() << "Nmap Output brut >>" << output;
 
     scanBuffer += output;
 

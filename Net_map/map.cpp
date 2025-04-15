@@ -168,15 +168,7 @@ int createMap(std::string path) {
             }
         }
 
-        //qDebug() << ipGateway;
-
         delay[ip.toStdString()] = { type.toStdString(), time.toStdString(), osType.toStdString(), mac.toStdString()};
-        /*for (const auto& entry : delay) {
-            qDebug() << "IP:" << QString::fromStdString(entry.first);
-            for (const auto& item : entry.second) {
-                qDebug() << "   → " << QString::fromStdString(item);
-            }
-        }*/
     }
 
 
@@ -199,7 +191,6 @@ int createMap(std::string path) {
         }
     }
 	
-	// Ajout des liens entre les appareils
     // Génération du graphe
     generateGraphe(network_map);
 
@@ -241,9 +232,6 @@ void generateGraphe(const std::unordered_map<std::string, Device>& network_map) 
     process.setWorkingDirectory(exePath);
     process.start(program, arguments);
     process.waitForFinished();
-
-    //qDebug() << "✅ Graphviz terminé, on charge l’image.";
-
 };
 
 void detectGateway() {
@@ -251,7 +239,6 @@ void detectGateway() {
     process.start("ipconfig");
     process.waitForFinished();
     QString output = process.readAllStandardOutput();
-    //qDebug() << "ipconfig Output brut >>" << output;
 
     QStringList lines = output.split('\n', Qt::SkipEmptyParts);
     QRegularExpression ipv4Regex(R"(\b\d{1,3}(?:\.\d{1,3}){3}\b)");
@@ -261,8 +248,6 @@ void detectGateway() {
 
         // Accepte toute ligne contenant 'passerelle'
         if (line.contains("passerelle")) {
-            //qDebug() << "🔍 Ligne avec 'passerelle' détectée :" << line;
-
             // Check IP dans cette ligne
             QRegularExpressionMatch match = ipv4Regex.match(line);
             if (match.hasMatch()) {
@@ -273,7 +258,6 @@ void detectGateway() {
             // Sinon regarde jusqu’à 3 lignes suivantes
             for (int j = i + 1; j <= i + 3 && j < lines.size(); ++j) {
                 QString nextLine = lines[j].trimmed();
-                //qDebug() << "👉 Ligne suivante : " << nextLine;
 
                 QRegularExpressionMatch matchNext = ipv4Regex.match(nextLine);
                 if (matchNext.hasMatch()) {
@@ -285,10 +269,5 @@ void detectGateway() {
 
         if (!ipGateway.isEmpty()) break;
     }
-
-    /*if (ipGateway.isEmpty())
-        qDebug() << "❌ Gateway non trouvée.";
-    else
-        qDebug() << "✅ Gateway détectée :" << ipGateway;*/
 }
 
