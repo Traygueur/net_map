@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "globals.h"
 #include <QMainWindow>
 #include <QScrollArea>
 #include <QProcess>
@@ -30,7 +31,6 @@ private:
     QScrollArea *scrollArea;
     QProcess *process = nullptr;     // le processus Nmap
     QString scanBuffer;
-    QTime startTime;
     int currentScanPhase = 1;
     int lastProgressPercent = -1;
     QGraphicsScene* scene;

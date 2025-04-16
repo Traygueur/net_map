@@ -20,6 +20,9 @@
 #include <limits>
 
 
+#include "globals.h"
+
+
 
 QString ipGateway;
 std::unordered_map<std::string, std::vector<std::string>> delay;
@@ -109,8 +112,6 @@ int createMap(std::string path) {
     QString xmlPath;
     std::unordered_map<std::string, Device> network_map;
     if (path == "Null") {
-        QString exePath = QCoreApplication::applicationDirPath();
-
         xmlPath = exePath + "/scan_network.xml";
     }
     else {
@@ -198,7 +199,6 @@ int createMap(std::string path) {
 };
 
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map) {
-    QString exePath = QCoreApplication::applicationDirPath();
     QString dotPath = exePath + "/network.dot";
     std::ofstream file(dotPath.toStdString());
     file << "graph Network {\n";
@@ -229,9 +229,35 @@ void generateGraphe(const std::unordered_map<std::string, Device>& network_map) 
     QStringList arguments = {"-Ksfdp", "-Tpng", "-Gdpi=72", "network.dot", "-o", "network.png"};
 
 
-    process.setWorkingDirectory(exePath);
+    /*process.setWorkingDirectory(exePath);
     process.start(program, arguments);
-    process.waitForFinished();
+    process.waitForFinished();*/
+
+    process.setWorkingDirectory(exePath);
+
+    // Log du programme et des arguments
+    qDebug() << "Programme lancé :" << program;
+    qDebug() << "Arguments :" << arguments;
+    qDebug() << "Répertoire de travail :" << exePath;
+
+    process.start(program, arguments);
+
+    if (!process.waitForStarted()) {
+        qDebug() << "Erreur : le processus n'a pas démarré.";
+        qDebug() << "Erreur détaillée :" << process.errorString();
+        return;
+    }
+
+    if (!process.waitForFinished()) {
+        qDebug() << "Erreur : le processus ne s'est pas terminé correctement.";
+        qDebug() << "Erreur détaillée :" << process.errorString();
+    }
+    else {
+        qDebug() << "Processus terminé avec le code :" << process.exitCode();
+        qDebug() << "Sortie standard :" << process.readAllStandardOutput();
+        qDebug() << "Erreur standard :" << process.readAllStandardError();
+    }
+
 };
 
 void detectGateway() {

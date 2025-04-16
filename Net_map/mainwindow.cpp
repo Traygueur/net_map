@@ -17,6 +17,8 @@
 #include <QImageReader>
 #include "portsinfo.h"
 
+#include "scan.h"
+#include "globals.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -25,8 +27,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->scrollArea->setStyleSheet("background-color: #2E2E2E;");
     connect(ui->pushButtonImage, &QPushButton::clicked, this, &MainWindow::nmapScan);
-    //QAction *actionNouvellePage = new QAction("Changer de page", this);
-    //ui->menuNetMap->addAction(actionNouvellePage);
 
     // Nav Function
     manageActionMenu(ui->menuNetMap, "Changer de page", 0);
@@ -63,7 +63,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
-   
 }
 
 MainWindow::~MainWindow()
@@ -80,29 +79,19 @@ void MainWindow::manageActionMenu(QMenu* menu, QString texte, int index) {
     menu->addAction(action);
 }
 
-void MainWindow::nmapScan()
-{
-
+void MainWindow::nmapScan() {
     QString ipRange = ui->lineEdit->text().trimmed();
 	if (ipRange.isEmpty()) {
 		QMessageBox::warning(this, "Erreur", "Veuillez entrer une plage d'adresses IP.");
 		return;
 	}
 
-    QString exePath = QCoreApplication::applicationDirPath();
-
     ui->progressBar->setValue(0);
 
     scanBuffer.clear();
+    
     process = new QProcess(this);
-    QString program = exePath + "/nmap/nmap.exe";
-    QStringList arguments = {
-         "-sS", "-O", "-F",
-        "--script=broadcast-dhcp-discover,broadcast-ping,broadcast-netbios-master-browser,broadcast-igmp-discovery",
-         "--stats-every", "2s",
-         "-oX", "scan_network.xml",
-         ipRange
-    };
+
     connect(process, &QProcess::readyReadStandardOutput,
         this, &MainWindow::updateScanOutput);
     connect(process, &QProcess::readyReadStandardError,
@@ -113,22 +102,15 @@ void MainWindow::nmapScan()
             loadCarto(exitCode, status, true);
         });
 
-
-
-    startTime = QTime::currentTime();
-    process->setWorkingDirectory(exePath);
-    process->start(program, arguments);
-
+    startScan(process, ipRange);
 }
 
-void MainWindow::ouvrirPage(int index)
-{
+void MainWindow::ouvrirPage(int index) {
     ui->stackedWidget->setCurrentIndex(index);
 }
 
 void MainWindow::saveCarto()
 {
-    QString exePath = QCoreApplication::applicationDirPath();
     QString sourcePath = exePath + "/network.png";  // Chemin actuel de l'image
     QString destinationPath = QFileDialog::getSaveFileName(this,
         "Enregistrer la cartographie",
@@ -152,7 +134,7 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
 
         QString xmlPath, linkQString;
         if (!scanDone) {
-            linkQString = QFileDialog::getOpenFileName(this, "Choisir un fichier", "", "Fichiers XML (*.xml);;Tous les fichiers (*)");
+            linkQString = QFileDialog::getOpenFileName(this, "Choisir un fichier", exePath, "Fichiers XML (*.xml);;Tous les fichiers (*)");
 
             if (linkQString.isEmpty()) {
                 return;
@@ -165,7 +147,6 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
             createMap("Null");
         }
 
-        QString exePath = QCoreApplication::applicationDirPath();
         QString pngPath = exePath + "/network.png";
         QImageReader::setAllocationLimit(2048);
         QPixmap pixmap(pngPath);
@@ -176,8 +157,6 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
             scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
             ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
         }
-
-        
 
 
         if (!scanDone) {
@@ -277,7 +256,7 @@ void MainWindow::securityTable(const QString& filePath) {
 
     ui->tableWidget_2->insertRow(ui->tableWidget_2->rowCount());
     ui->tableWidget_2->setColumnCount(5);
-    ui->tableWidget_2->setHorizontalHeaderLabels({ "IP", "Ports", "Protocols", "State", "Danger" });
+    ui->tableWidget_2->setHorizontalHeaderLabels({ "IP", "Ports", "Protocols", "State", "Danger (/5)" });
 
     int line = 0;
     int Danger;
@@ -322,13 +301,14 @@ void MainWindow::securityTable(const QString& filePath) {
 
                     int numPort = Ports.toInt();
                     Danger = getDangerLevelForPort(numPort);
+                    QString dangerText = (Danger != -1) ? QString::number(Danger) : "Unknown";
 
                     ui->tableWidget_2->insertRow(line);
                     ui->tableWidget_2->setItem(line, 0, new QTableWidgetItem(ip));
                     ui->tableWidget_2->setItem(line, 1, new QTableWidgetItem(Ports));
                     ui->tableWidget_2->setItem(line, 2, new QTableWidgetItem(Protocols));
                     ui->tableWidget_2->setItem(line, 3, new QTableWidgetItem(State));
-                    ui->tableWidget_2->setItem(line, 4, new QTableWidgetItem(Danger));
+                    ui->tableWidget_2->setItem(line, 4, new QTableWidgetItem(dangerText));
 
                     line++;
 

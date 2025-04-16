@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 
+#include <QDebug>
+
 using json = nlohmann::json;
 
 // Déclaration de la variable globale

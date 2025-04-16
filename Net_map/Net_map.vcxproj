@@ -150,6 +150,8 @@
     <QtMoc Include="customgraphicsview.h" />
     <ClInclude Include="framework.h" />
     <QtMoc Include="mainwindow.h" />
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="scan.h" />
     <ClInclude Include="map.h" />
     <ClInclude Include="portsinfo.h" />
     <ClInclude Include="Resource.h" />
@@ -160,6 +162,7 @@
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="portsinfo.cpp" />
+    <ClCompile Include="scan.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Net_map.rc" />
