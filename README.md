@@ -8,7 +8,7 @@
 - [✅ Utilisation](#-Utilisation)
 - [🧠 Notes complémentaires](#-Notes-complémentaires)
 - [📄 Exemple de format JSON attendu](#-Exemple-de-format-attendu-(ports_info.json))
-- [✍️ Auteur](#-Auteur)
+- [✍️ Auteur](#Auteur)
 
 
 ## Présentation :
