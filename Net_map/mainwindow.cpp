@@ -16,6 +16,8 @@
 #include <QGraphicsPixmapItem>
 #include <QImageReader>
 #include "portsinfo.h"
+#include <QGraphicsSvgItem>
+#include <QSvgRenderer>
 
 #include "scan.h"
 #include "globals.h"
@@ -147,16 +149,21 @@ void MainWindow::loadCarto(int exitCode, QProcess::ExitStatus status, bool scanD
             createMap("Null");
         }
 
-        QString pngPath = exePath + "/network.png";
-        QImageReader::setAllocationLimit(2048);
-        QPixmap pixmap(pngPath);
+        QString svgPath = exePath + "/network.svg";
 
-        if (!pixmap.isNull()) {
-            // Affiche l'image dans le QLabel
-            pixmapItem = scene->addPixmap(pixmap);
-            scene->setSceneRect(pixmapItem->boundingRect().adjusted(-10, -10, 10, 10));
-            ui->graphicsView->fitInView(pixmapItem, Qt::KeepAspectRatio);
+        QSvgRenderer* renderer = new QSvgRenderer(svgPath, this);
+
+        if (!renderer->isValid()) {
+            return;
         }
+
+        QGraphicsSvgItem* svgItem = new QGraphicsSvgItem();
+        svgItem->setSharedRenderer(renderer);
+
+        scene->clear();
+        scene->addItem(svgItem);
+        scene->setSceneRect(svgItem->boundingRect().adjusted(-10, -10, 10, 10));
+        ui->graphicsView->fitInView(svgItem, Qt::KeepAspectRatio);
 
 
         if (!scanDone) {

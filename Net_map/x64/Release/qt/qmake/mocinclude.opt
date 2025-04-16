@@ -12,8 +12,10 @@
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtUiTools
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtOpenGLWidgets
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtOpenGL
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtSvgWidgets
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtUiPlugin
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtWidgets
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtSvg
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtGui
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlMeta/6.8.3
 -ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlMeta/6.8.3/QtQmlMeta

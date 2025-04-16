@@ -30,6 +30,12 @@
     <ClInclude Include="portsinfo.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="scan.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="map.cpp">
@@ -42,6 +48,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="portsinfo.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="scan.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,6 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="mainwindow.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </QtMoc>
+    <QtMoc Include="customgraphicsview.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </QtMoc>
   </ItemGroup>
