@@ -1,13 +1,13 @@
 # Net_map
 
 ## Sommaire
-- [🗺️ Présentation](#-Présentation)
-- [🛠️ Fonctionnalités principales](#-Fonctionnalités-principales)
-- [📦 Structure du projet](#-Structure-du-projet)
-- [⚙️ Pré-requis (développement)](#-Pré-requis-(développement))
-- [✅ Utilisation](#-Utilisation)
-- [🧠 Notes complémentaires](#-Notes-complémentaires)
-- [📄 Exemple de format JSON attendu](#-Exemple-de-format-attendu-(ports_info.json))
+- [🗺️ Présentation](#Présentation)
+- [🛠️ Fonctionnalités principales](#Fonctionnalités-principales)
+- [📦 Structure du projet](#Structure-du-projet)
+- [⚙️ Pré-requis (développement)](#Pré-requis-(développement))
+- [✅ Utilisation](#Utilisation)
+- [🧠 Notes complémentaires](#Notes-complémentaires)
+- [📄 Exemple de format JSON attendu](#Exemple-de-format-attendu-(ports_info.json))
 - [✍️ Auteur](#Auteur)
 
 
