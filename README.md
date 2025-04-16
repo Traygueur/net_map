@@ -11,7 +11,7 @@
 - [✍️ Auteur](#auteur)
 
 
-## Présentation :
+## Présentation
 **Net_map** est une application Qt développée en C++ permettant de visualiser les résultats de scans réseau réalisés via Nmap, en mettant en évidence les ports détectés, leurs protocoles, leur état, ainsi qu'un indice de dangerosité basé sur une base de données locale au format JSON.
 
 ## Fonctionnalités principales
