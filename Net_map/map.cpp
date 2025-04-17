@@ -21,6 +21,7 @@
 
 
 #include "globals.h"
+#include "device_detection.h"
 
 
 QString ipGateway, ip, mask;
@@ -137,7 +138,7 @@ int createMap(std::string path) {
     for (int i = 0; i < hosts.count(); ++i) {
         QDomElement host = hosts.at(i).toElement();
 
-        QString ip, mac, osType, accuracy, vendor, type, time;
+        QString ip, mac, hostname, osType, accuracy, vendor, type, time;
 
         QDomNodeList times = host.elementsByTagName("times");
         for (int j = 0; j < times.count(); ++j) {
@@ -155,6 +156,16 @@ int createMap(std::string path) {
 
             if (type == "ipv4") ip = addr;
             if (type == "mac") mac = addr;
+        }
+
+        QDomNodeList hostnames = host.elementsByTagName("hostnames");
+        if (!hostnames.isEmpty()) {
+            QDomElement hostnameElement = hostnames.at(0).toElement();
+            QDomNodeList hostnamesMatches = hostnameElement.elementsByTagName("hostname");
+            if (!hostnamesMatches.isEmpty()) {
+                QDomElement hostnameMatch = hostnamesMatches.at(0).toElement();
+                hostname = hostnameMatch.attribute("name");
+            }
         }
 
         QDomNodeList osNodes = host.elementsByTagName("os");
@@ -175,7 +186,7 @@ int createMap(std::string path) {
         uint32_t currentIPInt = ipToInt(ip);
         uint32_t currentSubnet = currentIPInt & maskInt;
         int id = (currentSubnet == localSubnet) ? 2 : 1;
-        delay[ip.toStdString()] = { type.toStdString(), time.toStdString(), osType.toStdString(), mac.toStdString(), QString::number(id).toStdString() };
+        delay[ip.toStdString()] = { type.toStdString(), time.toStdString(), osType.toStdString(), mac.toStdString(), QString::number(id).toStdString(), hostname.toStdString()};
 
 
     }
@@ -189,18 +200,19 @@ int createMap(std::string path) {
         const std::string& ostype = entry.second[2];
         const std::string& mac = entry.second[3];
         const std::string& id = entry.second[4];
+        const std::string& hostname = entry.second[5];
 
         if (ip == gateway) {
-            network_map[ip] = { ostype, mac, {}, id };
+            network_map[ip] = { ostype, mac, {}, id, hostname };
         }
         else if (association[ip].empty()) {
-            network_map[ip] = { ostype, mac, {}, id };
+            network_map[ip] = { ostype, mac, {}, id, hostname };
         }
         else if (id == "2") {
-            network_map[ip] = { ostype, mac, {association[ip]}, id };
+            network_map[ip] = { ostype, mac, {association[ip]}, id, hostname };
         }
         else {
-            network_map[ip] = { ostype, mac, { }, id };
+            network_map[ip] = { ostype, mac, { }, id, hostname };
         }
     }
 
@@ -213,81 +225,86 @@ int createMap(std::string path) {
 void generateGraphe(const std::unordered_map<std::string, Device>& network_map) {
     QString dotPath = exePath + "/network.dot";
     std::ofstream file(dotPath.toStdString());
+
     file << "graph Network {\n";
-    file << R"( layout=twopi;
-                bgcolor="#2E2E2E";
-                overlap=scale;
-                splines=true;
-                sep="+0.5";
-                nodesep=0.3;
-                ranksep=0.4;
+    file << "    layout=twopi;\n";
+    file << "    bgcolor=\"#2E2E2E\";\n";
+    file << "    overlap=scale;\n";
+    file << "    splines=true;\n";
+    file << "    node [style=filled, shape=ellipse, fillcolor=\"white\", fontcolor=\"black\", color=\"black\", fontsize=14, margin=0.2];\n";
+    file << "    edge [color=\"white\"];\n\n";
 
-                node [style=filled, shape=ellipse, fillcolor="white", fontcolor="black", color="black", fontsize=14];
-                edge [color="white", penwidth=1.2, len=0.4];
+    file << "    \"SWITCH_LOCAL\" [label=\"Switch Virtuel Local\"];\n";
+    file << "    \"Passerelle\" [label=\"Passerelle\"];\n";
+    file << "    \"Passerelle\" -- \"" << ipGatewayLocal.toStdString() << "\";\n";
+    file << "    \"SWITCH_LOCAL\" -- \"" << ipGatewayLocal.toStdString() << "\";\n";
 
-                "SWITCH_LOCAL" [label="Switch Virtuel Local"]
-                "Passerelle" [label=Passerelle])";
-
-    file << "  \"Passerelle\" -- \"" << ipGatewayLocal.toStdString() << "\";\n";
-    file << "  \"SWITCH_LOCAL\" -- \"" << ipGatewayLocal.toStdString() << "\";\n";
     for (const auto& entry : network_map) {
         std::string ip = entry.first;
         Device device = entry.second;
         bool isSwitch = std::find(sortedSwitches.begin(), sortedSwitches.end(), ip) != sortedSwitches.end();
-        if (ip == ipGatewayLocal)
-        {
-            file << "  \"" << ip << "\" [label=\"" << ip << "\\n" << device.type << "\", root=true];\n";
+
+        // --- Détection automatique du type et de la couleur ---
+        QString qhostname = QString::fromStdString(device.hostname);
+        QString qosname = QString::fromStdString(device.type);  // ← À adapter si os_name est ailleurs
+
+        QString detectedType = detectType(qhostname, qosname);
+        QString fillColor = getColorForType(detectedType);
+
+        if (ip == ipGatewayLocal.toStdString()) {
+            file << "    \"" << ip << "\" [label=\"" << ip << "\\n"
+                << detectedType.toStdString() << "\\n"
+                << device.type << "\", root=true, fillcolor=\"#fff983\"];\n";
+            continue;
         }
-        else
-        {
-            file << "  \"" << ip << "\" [label=\"" << ip << "\\n" << device.type << "\"];\n";
+
+        file << "    \"" << ip << "\" [label=\"" << ip << "\\n"
+            << detectedType.toStdString() << "\\n" << device.type << "\", fillcolor=\"" << fillColor.toStdString() << "\"];\n";
+
+        if (!sortedSwitches.empty()) {
+            // Il y a des switches physiques détectés
+            if (device.id == "2") {
+                if (!association[ip].empty()) {
+                    // L'appareil a un switch associé
+                    file << "    \"" << association[ip] << "\" -- \"" << ip << "\";\n";
+                }
+                else if (isSwitch) {
+                    // C'est un switch
+                    file << "    \"SWITCH_LOCAL\" -- \"" << ip << "\";\n";
+                }
+                else {
+                    // Appareil sans association mais réseau local
+                    file << "    \"SWITCH_LOCAL\" -- \"" << ip << "\";\n";
+                }
+            }
         }
-        if (device.id == "2" && isSwitch) {
-            file << "  \"SWITCH_LOCAL\" -- \"" << ip << "\";\n";
+        else {
+            // Aucun switch détecté : tous sur SWITCH_LOCAL
+            if (device.id == "2") {
+                file << "    \"SWITCH_LOCAL\" -- \"" << ip << "\";\n";
+            }
         }
-        else if (device.id == "1") {
-            file << "  \"Passerelle\" -- \"" << ip << "\";\n";
+
+        if (device.id == "1" && !isSwitch) {
+            // Si ce n'est PAS un switch => relier à la Passerelle
+            file << "    \"Passerelle\" -- \"" << ip << "\";\n";
         }
+
         for (const auto& link : device.links) {
-            file << "  \"" << ip << "\" -- \"" << link << "\";\n";
+            file << "    \"" << ip << "\" -- \"" << link << "\";\n";
         }
     }
-    file << "}\n"; // Fin du graphe
-    file.close();  // Ferme le fichier
+
+    file << "}\n";
+    file.close();
 
     QProcess process;
     QString program = exePath + "/Graphviz/bin/dot.exe";  // Chemin absolu
-    QStringList arguments = { "-Ktwopi", "-Tsvg", "-Gdpi=72", "network.dot", "-o", "network.svg" };
-
-
-    /*process.setWorkingDirectory(exePath);
-    process.start(program, arguments);
-    process.waitForFinished();*/
+    QStringList arguments = { "-Ktwopi", "-Tsvg", "network.dot", "-o", "network.svg" };
 
     process.setWorkingDirectory(exePath);
-
-    // Log du programme et des arguments
-    qDebug() << "Programme lancé :" << program;
-    qDebug() << "Arguments :" << arguments;
-    qDebug() << "Répertoire de travail :" << exePath;
-
     process.start(program, arguments);
-
-    if (!process.waitForStarted()) {
-        qDebug() << "Erreur : le processus n'a pas démarré.";
-        qDebug() << "Erreur détaillée :" << process.errorString();
-        return;
-    }
-
-    if (!process.waitForFinished()) {
-        qDebug() << "Erreur : le processus ne s'est pas terminé correctement.";
-        qDebug() << "Erreur détaillée :" << process.errorString();
-    }
-    else {
-        qDebug() << "Processus terminé avec le code :" << process.exitCode();
-        qDebug() << "Sortie standard :" << process.readAllStandardOutput();
-        qDebug() << "Erreur standard :" << process.readAllStandardError();
-    }
+    process.waitForFinished();
 };
 
 void detectGateway() {

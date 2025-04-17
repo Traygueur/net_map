@@ -9,7 +9,7 @@
     },
     "13": {
         "protocol": "daytime",
-        "danger_level": 3
+        "danger_level": 1
     },
     "21": {
         "protocol": "ftp",

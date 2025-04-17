@@ -20,6 +20,7 @@ struct Device {
     std::string mac_address;
     std::vector<std::string> links;
     std::string id;
+    std::string hostname;
 };
 
 extern std::unordered_map<std::string, std::vector<std::string>> delay;

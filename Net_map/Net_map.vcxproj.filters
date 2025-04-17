@@ -36,6 +36,9 @@
     <ClInclude Include="scan.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="device_detection.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="map.cpp">
@@ -51,6 +54,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="scan.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="device_detection.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

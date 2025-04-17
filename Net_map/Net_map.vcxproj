@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtMoc Include="customgraphicsview.h" />
+    <ClInclude Include="device_detection.h" />
     <ClInclude Include="framework.h" />
     <QtMoc Include="mainwindow.h" />
     <ClInclude Include="globals.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="map.cpp" />
     <ClCompile Include="portsinfo.cpp" />
     <ClCompile Include="scan.cpp" />
+    <ClCompile Include="device_detection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Net_map.rc" />

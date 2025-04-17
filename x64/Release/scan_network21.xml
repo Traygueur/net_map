@@ -8134,4 +8134,5 @@
 </host>
 <runstats><finished time="1744374428" timestr="Fri Apr 11 14:27:08 2025" summary="Nmap done at Fri Apr 11 14:27:08 2025; 2048 IP addresses (234 hosts up) scanned in 1258.02 seconds" elapsed="1258.02" exit="success"/><hosts up="234" down="1814" total="2048"/>
 </runstats>
+<local gateway="172.16.80.1" ip="172.16.80.90" subnetMask="255.255.248.0"/>
 </nmaprun>
