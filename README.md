@@ -27,16 +27,17 @@
 ```
 Net_map/
 ├── json_data/
-│   └── ports_info.json      # Base de données des ports et niveaux de danger
+│   └── ports_info.json        # Base de données des ports et niveaux de danger
 ├── libs/
-│   └── nlohmann/            # Librairie : Gestion de json en C++
-├── main.cpp                 # Point d’entrée de l’application
-├── mainwindow.ui            # Interface graphique (Qt Designer)
-├── mainwindow.cpp/.h        # Logique de l’interface principale (GUI)
-├── map.cpp/.h               # Parsing et traitement des données Nmap, Création de la cartographie
-├── portsinfo.cpp/.h         # Chargement des données JSON des ports
-├── scan.cpp/.h         # Gestion et lancement des scannes nmap
-└── globals.h                # Variables globales (ex : chemin d’exécution)
+│   └── nlohmann/              # Librairie : Gestion de json en C++
+├── main.cpp                   # Point d’entrée de l’application
+├── mainwindow.ui              # Interface graphique (Qt Designer)
+├── mainwindow.cpp/.h          # Logique de l’interface principale (GUI)
+├── map.cpp/.h                 # Parsing et traitement des données Nmap, Création de la cartographie
+├── portsinfo.cpp/.h           # Chargement des données JSON des ports
+├── scan.cpp/.h                # Gestion et lancement des scannes nmap
+├── device_detection.cpp/.h    # Détection du type de l'appareil scanné
+└── globals.h                  # Variables globales (ex : chemin d’exécution)
 ```
 
 ## Pré-requis (développement)
