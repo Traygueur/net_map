@@ -26,11 +26,11 @@ static const QVector<QPair<QRegularExpression, QPair<QString, QString>>> regexTy
 
     {QRegularExpression("(?i)vmware|virtualbox|qemu|kvm|hyper-v"), {"Machine virtuelle", "#F0AD4E"}},
 
-    {QRegularExpression("(?i)fortinet|router|switch|firewall|cisco|ubiquiti"), {"Équipement réseau", "#9B59B6"}},
+    {QRegularExpression("(?i)fortinet|router|switch|firewall|cisco|ubiquiti"), {"Equipement reseau", "#9B59B6"}},
 
     {QRegularExpression("(?i)printer|hp jetdirect|canon|epson|brother"), {"Imprimante", "#F7DC6F"}},
 
-    {QRegularExpression("(?i)smarttv|chromecast|google nest|xiaomi|sonos|iot"), {"Périphérique IoT", "#A3E4D7"}}
+    {QRegularExpression("(?i)smarttv|chromecast|google nest|xiaomi|sonos|iot"), {"Peripherique IoT", "#A3E4D7"}}
 };
 
 QString detectType(const QString& hostname, const QString& osName) {
