@@ -1,0 +1,46 @@
+-ID:/Software/Qt/6.8.3/msvc2022_64/mkspecs/win32-msvc
+-ID:/Travail/ESAIP/Bachelor 2/Net_map_solution/Net_map/x64/Release/qt/qmake
+-ID:/Software/Qt/6.8.3/msvc2022_64/include
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQuickLayouts
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQuick/6.8.3
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQuick/6.8.3/QtQuick
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtGui/6.8.3
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtGui/6.8.3/QtGui
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQuickWidgets
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQuick
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtDesigner
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtUiTools
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtOpenGLWidgets
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtOpenGL
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtSvgWidgets
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtUiPlugin
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtWidgets
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtSvg
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtGui
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlMeta/6.8.3
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlMeta/6.8.3/QtQmlMeta
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlModels/6.8.3
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlModels/6.8.3/QtQmlModels
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlWorkerScript/6.8.3
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlWorkerScript/6.8.3/QtQmlWorkerScript
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQml/6.8.3
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQml/6.8.3/QtQml
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtCore/6.8.3
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtCore/6.8.3/QtCore
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlMeta
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlModels
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlWorkerScript
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQml
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtQmlIntegration
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtNetwork
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtXml
+-ID:/Software/Qt/6.8.3/msvc2022_64/include/QtCore
+-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\atlmfc\include
+-IC:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\winrt
+-IC:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\cppwinrt
+-IInclude\um

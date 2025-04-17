@@ -1,0 +1,30 @@
+graph Network {
+    layout=twopi;
+    bgcolor="#2E2E2E";
+    overlap=scale;
+    splines=true;
+    node [style=filled, shape=ellipse, fillcolor="white", fontcolor="black", color="black", fontsize=14, margin=0.2];
+    edge [color="white"];
+
+    "SWITCH_LOCAL" [label="Switch Virtuel Local"];
+    "Passerelle" [label="Passerelle"];
+    "Passerelle" -- "192.168.1.254";
+    "SWITCH_LOCAL" -- "192.168.1.254";
+    "192.168.1.21" [label="192.168.1.21\nInconnu\nLinux 3.2 - 4.14", fillcolor="#FFFFFF"];
+    "SWITCH_LOCAL" -- "192.168.1.21";
+    "192.168.1.65" [label="192.168.1.65\nInconnu\nOpenWrt Kamikaze 7.09 (Linux 2.6.22)", fillcolor="#FFFFFF"];
+    "SWITCH_LOCAL" -- "192.168.1.65";
+    "192.168.1.131" [label="192.168.1.131\nSmartphone/Tablette\n", fillcolor="#5CB85C"];
+    "SWITCH_LOCAL" -- "192.168.1.131";
+    "192.168.1.254" [label="192.168.1.254\nInconnu\nLinux 4.19 - 5.15", root=true, fillcolor="#fff983"];
+    "192.168.1.40" [label="192.168.1.40\nInconnu\nLinux 3.2 - 3.8", fillcolor="#FFFFFF"];
+    "SWITCH_LOCAL" -- "192.168.1.40";
+    "192.168.1.64" [label="192.168.1.64\nSmartphone/Tablette\nAndroid 4.1.1", fillcolor="#5CB85C"];
+    "SWITCH_LOCAL" -- "192.168.1.64";
+    "192.168.1.106" [label="192.168.1.106\nInconnu\nLinux 4.15 - 5.19", fillcolor="#FFFFFF"];
+    "SWITCH_LOCAL" -- "192.168.1.106";
+    "192.168.1.140" [label="192.168.1.140\nSmartphone/Tablette\nAndroid 10 - 12 (Linux 4.14 - 4.19)", fillcolor="#5CB85C"];
+    "SWITCH_LOCAL" -- "192.168.1.140";
+    "192.168.1.90" [label="192.168.1.90\nOrdinateur\nMicrosoft Windows 10 1607 - 11 23H2", fillcolor="#0275D8"];
+    "SWITCH_LOCAL" -- "192.168.1.90";
+}

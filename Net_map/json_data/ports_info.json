@@ -1,0 +1,402 @@
+{
+    "7": {
+        "protocol": "echo",
+        "danger_level": 3
+    },
+    "9": {
+        "protocol": "discard",
+        "danger_level": 3
+    },
+    "13": {
+        "protocol": "daytime",
+        "danger_level": 3
+    },
+    "21": {
+        "protocol": "ftp",
+        "danger_level": 3
+    },
+    "22": {
+        "protocol": "ssh",
+        "danger_level": 3
+    },
+    "23": {
+        "protocol": "telnet",
+        "danger_level": 3
+    },
+    "25": {
+        "protocol": "smtp",
+        "danger_level": 3
+    },
+    "26": {
+        "protocol": "smtp-alt",
+        "danger_level": 3
+    },
+    "37": {
+        "protocol": "time",
+        "danger_level": 2
+    },
+    "53": {
+        "protocol": "dns",
+        "danger_level": 2
+    },
+    "79": {
+        "protocol": "finger",
+        "danger_level": 3
+    },
+    "80": {
+        "protocol": "http",
+        "danger_level": 2
+    },
+    "81": {
+        "protocol": "http-alt",
+        "danger_level": 2
+    },
+    "88": {
+        "protocol": "kerberos",
+        "danger_level": 3
+    },
+    "106": {
+        "protocol": "pop3pw",
+        "danger_level": 3
+    },
+    "110": {
+        "protocol": "pop3",
+        "danger_level": 3
+    },
+    "111": {
+        "protocol": "rpcbind",
+        "danger_level": 3
+    },
+    "113": {
+        "protocol": "ident",
+        "danger_level": 2
+    },
+    "119": {
+        "protocol": "nntp",
+        "danger_level": 2
+    },
+    "135": {
+        "protocol": "msrpc",
+        "danger_level": 3
+    },
+    "139": {
+        "protocol": "netbios-ssn",
+        "danger_level": 3
+    },
+    "143": {
+        "protocol": "imap",
+        "danger_level": 3
+    },
+    "144": {
+        "protocol": "news",
+        "danger_level": 2
+    },
+    "179": {
+        "protocol": "bgp",
+        "danger_level": 3
+    },
+    "199": {
+        "protocol": "smux",
+        "danger_level": 3
+    },
+    "389": {
+        "protocol": "ldap",
+        "danger_level": 3
+    },
+    "427": {
+        "protocol": "svrloc",
+        "danger_level": 2
+    },
+    "443": {
+        "protocol": "https",
+        "danger_level": 2
+    },
+    "444": {
+        "protocol": "snpp",
+        "danger_level": 2
+    },
+    "445": {
+        "protocol": "microsoft-ds",
+        "danger_level": 3
+    },
+    "465": {
+        "protocol": "smtps",
+        "danger_level": 2
+    },
+    "513": {
+        "protocol": "rlogin",
+        "danger_level": 3
+    },
+    "514": {
+        "protocol": "shell",
+        "danger_level": 3
+    },
+    "515": {
+        "protocol": "printer",
+        "danger_level": 2
+    },
+    "543": {
+        "protocol": "klogin",
+        "danger_level": 3
+    },
+    "544": {
+        "protocol": "kshell",
+        "danger_level": 3
+    },
+    "548": {
+        "protocol": "afp",
+        "danger_level": 2
+    },
+    "554": {
+        "protocol": "rtsp",
+        "danger_level": 2
+    },
+    "587": {
+        "protocol": "submission",
+        "danger_level": 2
+    },
+    "631": {
+        "protocol": "ipp",
+        "danger_level": 2
+    },
+    "646": {
+        "protocol": "ldp",
+        "danger_level": 2
+    },
+    "873": {
+        "protocol": "rsync",
+        "danger_level": 2
+    },
+    "990": {
+        "protocol": "ftps",
+        "danger_level": 2
+    },
+    "993": {
+        "protocol": "imaps",
+        "danger_level": 2
+    },
+    "995": {
+        "protocol": "pop3s",
+        "danger_level": 2
+    },
+    "1025": {
+        "protocol": "NFS-or-Microsoft",
+        "danger_level": 3
+    },
+    "1026": {
+        "protocol": "unassigned",
+        "danger_level": 2
+    },
+    "1027": {
+        "protocol": "unassigned",
+        "danger_level": 2
+    },
+    "1028": {
+        "protocol": "unassigned",
+        "danger_level": 2
+    },
+    "1029": {
+        "protocol": "unassigned",
+        "danger_level": 2
+    },
+    "1110": {
+        "protocol": "nfsd-status",
+        "danger_level": 2
+    },
+    "1433": {
+        "protocol": "ms-sql-s",
+        "danger_level": 3
+    },
+    "1720": {
+        "protocol": "h323",
+        "danger_level": 2
+    },
+    "1723": {
+        "protocol": "pptp",
+        "danger_level": 2
+    },
+    "1755": {
+        "protocol": "ms-streaming",
+        "danger_level": 2
+    },
+    "1900": {
+        "protocol": "ssdp",
+        "danger_level": 3
+    },
+    "2000": {
+        "protocol": "cisco-sccp",
+        "danger_level": 2
+    },
+    "2001": {
+        "protocol": "dc",
+        "danger_level": 2
+    },
+    "2049": {
+        "protocol": "nfs",
+        "danger_level": 3
+    },
+    "2121": {
+        "protocol": "ccproxy-ftp",
+        "danger_level": 3
+    },
+    "2717": {
+        "protocol": "pn-requester",
+        "danger_level": 2
+    },
+    "3000": {
+        "protocol": "p2p-dev",
+        "danger_level": 2
+    },
+    "3128": {
+        "protocol": "squid-http",
+        "danger_level": 3
+    },
+    "3306": {
+        "protocol": "mysql",
+        "danger_level": 3
+    },
+    "3389": {
+        "protocol": "ms-wbt-server",
+        "danger_level": 3
+    },
+    "3986": {
+        "protocol": "mapper-ws",
+        "danger_level": 2
+    },
+    "4899": {
+        "protocol": "radmin",
+        "danger_level": 3
+    },
+    "5000": {
+        "protocol": "upnp",
+        "danger_level": 3
+    },
+    "5009": {
+        "protocol": "airport-admin",
+        "danger_level": 2
+    },
+    "5051": {
+        "protocol": "ita-agent",
+        "danger_level": 2
+    },
+    "5060": {
+        "protocol": "sip",
+        "danger_level": 3
+    },
+    "5101": {
+        "protocol": "admd",
+        "danger_level": 2
+    },
+    "5190": {
+        "protocol": "aol",
+        "danger_level": 2
+    },
+    "5357": {
+        "protocol": "wsdapi",
+        "danger_level": 2
+    },
+    "5432": {
+        "protocol": "postgresql",
+        "danger_level": 2
+    },
+    "5631": {
+        "protocol": "pcAnywhere-data",
+        "danger_level": 3
+    },
+    "5666": {
+        "protocol": "nrpe",
+        "danger_level": 2
+    },
+    "5800": {
+        "protocol": "vnc-web",
+        "danger_level": 3
+    },
+    "5900": {
+        "protocol": "vnc",
+        "danger_level": 3
+    },
+    "6000": {
+        "protocol": "x11",
+        "danger_level": 3
+    },
+    "6001": {
+        "protocol": "x11-1",
+        "danger_level": 3
+    },
+    "6646": {
+        "protocol": "unknown",
+        "danger_level": 2
+    },
+    "7070": {
+        "protocol": "realserver",
+        "danger_level": 2
+    },
+    "8000": {
+        "protocol": "http-alt",
+        "danger_level": 2
+    },
+    "8008": {
+        "protocol": "http-alt",
+        "danger_level": 2
+    },
+    "8009": {
+        "protocol": "ajp13",
+        "danger_level": 2
+    },
+    "8080": {
+        "protocol": "http-proxy",
+        "danger_level": 2
+    },
+    "8081": {
+        "protocol": "blackice-icecap",
+        "danger_level": 2
+    },
+    "8443": {
+        "protocol": "https-alt",
+        "danger_level": 2
+    },
+    "8888": {
+        "protocol": "ddi-tcp-1",
+        "danger_level": 2
+    },
+    "9100": {
+        "protocol": "jetdirect",
+        "danger_level": 2
+    },
+    "9999": {
+        "protocol": "abyss",
+        "danger_level": 2
+    },
+    "10000": {
+        "protocol": "webmin",
+        "danger_level": 3
+    },
+    "32768": {
+        "protocol": "filenet-tms",
+        "danger_level": 3
+    },
+    "49152": {
+        "protocol": "win-init",
+        "danger_level": 2
+    },
+    "49153": {
+        "protocol": "win-init",
+        "danger_level": 2
+    },
+    "49154": {
+        "protocol": "win-init",
+        "danger_level": 2
+    },
+    "49155": {
+        "protocol": "win-init",
+        "danger_level": 2
+    },
+    "49156": {
+        "protocol": "win-init",
+        "danger_level": 2
+    },
+    "49157": {
+        "protocol": "win-init",
+        "danger_level": 2
+    }
+}

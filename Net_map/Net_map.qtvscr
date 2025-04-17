@@ -1,0 +1,429 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" FontFamily="Segoe UI" FontSize="12">
+  <FlowDocument.Tag><![CDATA[{
+  "timestamp": "2025-03-21 11:02:47",
+  "files": {
+    "C:\\Users\\coulo\\Documents\\ESAIP\\PROJECT_APPLICATIF_C++\\net_map\\Net_map\\Net_map.vcxproj": {
+      "before": "7VnbbuM2EN3nAv2CvghCFk4eYjlxNuk2sha7djYw6lwQ5/JSIKClsa1GEgWSyibt9mf7JR1KJGX5so6RNtkGyUMAk8Ph8HB45qK/f3rzxv1wF0fWLTAe0qRlb9UbtgWJT4MwGbXsTAw3f7Y/eD/+4J4y+jv4wurAkGSROCdsBIK37E9ZGAW2hVoS/DUWIv3Fcbg/hpjwehz6jHI6FHWfxk4AtxDRFJgT84Fc5mw3Gk0btVuW2xUQHzKapVaPDCBq2WrDNk2G4ShjRKCBvBBG8XmzVjfxoyyAlt2BQTb6ehUmzW29AtdUVHm5jOtUB6Up8s89jYgYUhZ7uRLXMb8LCRwo8Ji3fIlxZxAB4bDEPCX1HAYW6N3t7jwWO1TxnyD3LdMejNuKxrmO8dDCYdEB0JXFfcVpDyM6IFHpppdt5SeXxQvztvbqDdeZGVZe9Svcf6EsKJxOrnQdPaQklLrDLAy8P7fJ+6bvb/ubsDsYbO7s7b7bJMHu1mYD9vaawd673ffD4C/jqvkapeaMUnFMYuAp8cE7BhGT1HWqo0oUH0BAv/DiwetnYI7TkMf5pohUk9tQoqVefJxSJix1opa9tn7ZVrRySsR447cjwx7tNK0r4qmniDu3LWfeLeBrDEJJFC27trZeeZsbX9fWtfUbtVarNsERNVuTTmWJdv8qcZzfp+B9TNMo9HNOmnqh+bSC7oJDvksvHDDCQuCeYBm4zuy4WqANPKc04iC8262dZvmC9KgSbo8JI74A1kfJiyRE0kbdldGF2CPo5XVYq8BWYa+nA26Ir+pfQ+5qTCNACEaMxCepCOPwj/wq1fUsnH5W4A0rPx3oL8dbkeyfDraX4qvd1Qi6SszF4kpwPLgTkMg8EwlLYH6pwiRG1nyjXHYyNFQW95HtICgo+WErNMf1x4CZqr0Sy1WCQ24TBrFZPJDImQyanZBNh6uJaFPPUEzHrQmuhbuQC76OkWplPbUNE7J61CcRxqMOEUTHDxMeHwTtY4CaCgevUJlaZUHCkTPRK0yLYdIe9fKA0u+swmvy6R8RWSabRysLDcx2wyRPZQvpCdpYLbPVrtaO2jROwwjUAPLZFWEJ0nBPluVe/h+TzcpgkfCgaL/Ta4/Bv1EZkvlpBE4ZIP/7wDllpe3cu+oeN7f3rzsHny4O96/xV+fkqr//dn2B/IasFOZrMlvJHB0rc5L4cIQprzJpelTlas70ud1emNyUGPSzQf+eI+Cy5pJ1juuUQ2bLQ0gAOxBFNt8ttpdlhtp74bQ2wuxZVJElQJMx75G3rt9N3rColbXLo+79c5b48qC5d8hToL+oQ8+dMoh1E8FCDPa+FtO1z5wJs8i4VZF4mp9GYJFvFF52/D/3soOEDCJonxx1Pp5/ppFswSms580YUFQFA2cwBIa9O1Nmzpkwixa6bAH9wulCges8hUdPVDzPzGKv/KU48wn4qxL3p9l7tailuec7Z69X3vr+eKsMzOhy7Uh9WSi/MAyxdQTYq72pj3XeNl9wlIXLRLD3ukwEO7TXDxA7A04z5sMydSL/eoNffUrB4mWXxy4/yMxwb4mCPJyfphUEVJpZCkm7lwrpA04ILrdIH3dmS62N+dq05cq6MRlBabVWgW1VrQMveEqIxySK6hMis9us1kMpLmaiFCg7I7pFbbooqlc+vyViuv7ePw==",
+      "after": "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"
+    }
+  }
+}]]></FlowDocument.Tag>
+  <Section Margin="0,24" TextAlignment="Center">
+    <Paragraph FontSize="24" FontWeight="Bold" Margin="12,0">
+      <LineBreak />
+      <Span Foreground="Gray">Qt Visual Studio Tools</Span>
+    </Paragraph>
+    <Paragraph FontSize="42" Margin="12,0" FontWeight="Bold">
+      <Span TextDecorations="Underline">Project Format Conversion</Span>
+    </Paragraph>
+    <Paragraph Margin="12,8" FontSize="18">
+      <Span>Report generated on 2025-03-21 11:02:47</Span>
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Files</Span>
+    </Paragraph>
+    <Paragraph Margin="24,12,0,0">
+      <Span FontFamily="Consolas" FontSize="14" Background="WhiteSmoke"><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+      <LineBreak />
+      <Hyperlink NavigateUri="file://C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj?before">[Before]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj?after">[After]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj?diff&amp;before&amp;after">
+                        [Diff before/after]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj?diff&amp;before&amp;current">
+                        [Diff before/current]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj?diff&amp;after&amp;current">
+                        [Diff after/current]
+                    </Hyperlink>
+      <LineBreak />
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Changes</Span>
+    </Paragraph>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Enabling multi-processor compilation]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Project format version]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Keyword>QtVS_v304</Keyword>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Fallback for QTMSBUILD environment variable]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Default Qt properties]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt build settings]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Warn if Qt/MSBuild is not found]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  </Target>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt property sheet]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt targets]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\coulo\Documents\ESAIP\PROJECT_APPLICATIF_C++\net_map\Net_map\Net_map.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+  </Section>
+  <Section>
+    <Paragraph />
+  </Section>
+</FlowDocument>
+<!--/SmbDVAhH6dp0rvId8/MdqeC7lE6AFDBQGfggrSiApc=-->
